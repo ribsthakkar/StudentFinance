@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddExpenseView: UIViewController {
 
@@ -21,8 +22,14 @@ class AddExpenseView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+	@IBOutlet var expenseName: UITextField!
+	@IBOutlet var expensePrice: UITextField!
+	@IBOutlet var expenseDate: UIDatePicker!
+	@IBOutlet var expenseType: UIPickerView!
+	
+	@IBAction func buttonSave(){
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

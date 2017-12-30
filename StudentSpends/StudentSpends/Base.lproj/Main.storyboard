@@ -60,7 +60,7 @@
         <!--Add Expense View-->
         <scene sceneID="09B-GQ-jtv">
             <objects>
-                <viewController id="VRY-Aj-ms5" customClass="AddExpenseView" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VRY-Aj-ms5" customClass="AddExpenseView" customModule="StudentSpends" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1s-dC-e72">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
                                         <rect key="frame" x="117.5" y="0.0" width="117.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -146,6 +146,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bra-Gl-piO">
                                 <rect key="frame" x="284" y="617" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="buttonSave" destination="VRY-Aj-ms5" eventType="touchUpInside" id="8dg-NQ-Ggj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y92-8D-5cR">
                                 <rect key="frame" x="37" y="617" width="48" height="30"/>
@@ -196,6 +199,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NyP-1h-JQ9"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseDate" destination="6M2-SU-Xmi" id="csN-yg-VCi"/>
+                        <outlet property="expenseName" destination="5Bs-GL-rxr" id="14F-yq-qoA"/>
+                        <outlet property="expensePrice" destination="oLn-yw-mep" id="FIM-hC-dyx"/>
+                        <outlet property="expenseType" destination="wrN-Kh-K7f" id="43y-r8-hHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5f-Nx-48K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
