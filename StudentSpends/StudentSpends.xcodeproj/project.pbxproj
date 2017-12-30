@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C75E0D11FF8096700BB0F3B /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D01FF8096700BB0F3B /* Expense.swift */; };
+		3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */; };
 		3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */; };
 		3CED836B1FF6ED9E006D0D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED836A1FF6ED9E006D0D30 /* ViewController.swift */; };
 		3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836C1FF6ED9E006D0D30 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C75E0D01FF8096700BB0F3B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		3CED83651FF6ED9E006D0D30 /* StudentSpends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSpends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CED836A1FF6ED9E006D0D30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +46,7 @@
 				3CED83661FF6ED9E006D0D30 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		3CED83661FF6ED9E006D0D30 /* Products */ = {
 			isa = PBXGroup;
@@ -56,6 +61,8 @@
 			children = (
 				3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */,
 				3CED836A1FF6ED9E006D0D30 /* ViewController.swift */,
+				3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */,
+				3C75E0D01FF8096700BB0F3B /* Expense.swift */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
 				3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */,
 				3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */,
@@ -136,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C75E0D11FF8096700BB0F3B /* Expense.swift in Sources */,
 				3CED836B1FF6ED9E006D0D30 /* ViewController.swift in Sources */,
 				3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */,
+				3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
