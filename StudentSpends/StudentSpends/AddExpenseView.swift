@@ -89,8 +89,6 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			print((sender as! Expense).price)
 			print((sender as! Expense).date)
 			ExchangeViewData.allExpenses.append(sender as! Expense)
-			
-			ExchangeViewData.expenseTable.reloadData()
 		}
     }
 	

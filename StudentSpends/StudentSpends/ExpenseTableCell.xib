@@ -26,9 +26,6 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eu5-zD-NWP">
                         <rect key="frame" x="367" y="25" width="22" height="22"/>
-                        <connections>
-                            <action selector="infoTapped:" destination="81u-jJ-08V" eventType="touchUpInside" id="99Y-Hs-Yzd"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-1c-0rz">
                         <rect key="frame" x="298" y="26" width="39" height="21"/>

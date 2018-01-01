@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ExpenseViewTable: UIViewController {
 	
@@ -17,7 +18,13 @@ class ExpenseViewTable: UIViewController {
 	var allExpenses = [Expense]()
 	override func viewDidLoad() {
         super.viewDidLoad()
-//		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
+		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
+		let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+		do{
+			let expenses = try PersistanceService.context.fetch(fetchRequest)
+			self.allExpenses = expenses
+		} catch{}
+		expenseTable.reloadData()
         // Do any additional setup after loading the view.
     }
 
@@ -34,7 +41,7 @@ extension ExpenseViewTable: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ExpenseTableCell
 		let expense = allExpenses[indexPath.row]
 		cell.nameOfExpense.text = expense.name
-		cell.priceOfExpense.text = String(expense.price)
+		cell.priceOfExpense.text = String(format: "$%.02f", expense.price)
 		return cell
 	}
 }
