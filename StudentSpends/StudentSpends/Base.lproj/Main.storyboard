@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef4-9r-eHu">
-                                <rect key="frame" x="142" y="248" width="90" height="30"/>
+                                <rect key="frame" x="136" y="248" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Expense"/>
+                                <state key="normal" title="View Expenses"/>
                                 <connections>
-                                    <segue destination="VRY-Aj-ms5" kind="presentation" id="eWC-SR-O6Y"/>
+                                    <segue destination="EVz-5L-xng" kind="presentation" id="dlf-tO-UGS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-AZ-cod">
@@ -55,7 +55,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.400000000000006" y="-52.623688155922046"/>
+            <point key="canvasLocation" x="-452" y="-400"/>
+        </scene>
+        <!--Expense View Table-->
+        <scene sceneID="Slw-9K-fuf">
+            <objects>
+                <viewController id="EVz-5L-xng" customClass="ExpenseViewTable" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Ei-sW-Pbt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-Dz-Zf6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Expenses" id="k4e-eL-YIy">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="IKm-sv-dOA">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" id="B2s-gn-Cgw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nIe-zF-1KZ">
+                                            <connections>
+                                                <segue destination="VRY-Aj-ms5" kind="presentation" id="XJZ-vQ-0tQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zr6-tu-QlZ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EVz-5L-xng" id="ORg-Wi-fTO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="leading" secondItem="UX1-R1-fCD" secondAttribute="leading" id="1ug-3b-Juk"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="bottom" secondItem="UX1-R1-fCD" secondAttribute="bottom" id="TfL-26-fc6"/>
+                            <constraint firstItem="q6u-Dz-Zf6" firstAttribute="top" secondItem="5Ei-sW-Pbt" secondAttribute="top" id="ZbY-fg-H6c"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="trailing" secondItem="UX1-R1-fCD" secondAttribute="trailing" id="cbv-Bc-4x1"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="top" secondItem="q6u-Dz-Zf6" secondAttribute="bottom" id="ctn-Da-ngc"/>
+                            <constraint firstItem="q6u-Dz-Zf6" firstAttribute="trailing" secondItem="UX1-R1-fCD" secondAttribute="trailing" id="hbH-L1-Pfb"/>
+                            <constraint firstItem="q6u-Dz-Zf6" firstAttribute="leading" secondItem="UX1-R1-fCD" secondAttribute="leading" id="oBR-0E-2yh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UX1-R1-fCD"/>
+                    </view>
+                    <connections>
+                        <outlet property="expenseTable" destination="zr6-tu-QlZ" id="cJk-AT-qsJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbn-cv-3ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711.20000000000005" y="-399.85007496251876"/>
         </scene>
         <!--Add Expense View-->
         <scene sceneID="09B-GQ-jtv">
@@ -84,7 +137,7 @@
                                         <rect key="frame" x="117.5" y="0.0" width="117.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -104,6 +157,9 @@
                                         <rect key="frame" x="36" y="0.0" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="536353526.640481">
                                             <!--2017-12-30 19:05:26 +0000-->
+                                        </date>
+                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                            <!--2037-12-31 11:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                 </subviews>
@@ -148,13 +204,14 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="buttonSave" destination="VRY-Aj-ms5" eventType="touchUpInside" id="8dg-NQ-Ggj"/>
+                                    <segue destination="EVz-5L-xng" kind="presentation" identifier="emptySubmit" id="hKc-6P-Zg4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y92-8D-5cR">
                                 <rect key="frame" x="37" y="617" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="bR1-EI-WL6"/>
+                                    <segue destination="EVz-5L-xng" kind="presentation" id="Dg8-Yu-4JN"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThR-Au-cnE">
@@ -204,11 +261,17 @@
                         <outlet property="expenseName" destination="5Bs-GL-rxr" id="14F-yq-qoA"/>
                         <outlet property="expensePrice" destination="oLn-yw-mep" id="FIM-hC-dyx"/>
                         <outlet property="expenseType" destination="wrN-Kh-K7f" id="43y-r8-hHA"/>
+                        <outlet property="submitButton" destination="bra-Gl-piO" id="Iwa-t7-ErF"/>
+                        <segue destination="EVz-5L-xng" kind="presentation" identifier="submitSegue" id="Yar-yI-vwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5f-Nx-48K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733.60000000000002" y="-314.39280359820094"/>
+            <point key="canvasLocation" x="1601" y="-401"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XJZ-vQ-0tQ"/>
+        <segue reference="Yar-yI-vwd"/>
+    </inferredMetricsTieBreakers>
 </document>
