@@ -27,6 +27,29 @@ class ExpenseViewTable: UIViewController {
 		expenseTable.reloadData()
         // Do any additional setup after loading the view.
     }
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		// Get the new view controller using segue.destinationViewController.
+		// Pass the selected object to the new view controller.
+		if segue.identifier == "detailExpenseSegue" {
+			//Initial your second view data control
+			let dest = segue.destination as! ExpenseDetails
+			let expense = sender as! Expense
+			if let imageOfExpense = expense.image{
+				dest.expensePhoto.backgroundColor = UIColor.clear
+				dest.expensePhoto.image = imageOfExpense as? UIImage
+			} else{
+				dest.expensePhoto.backgroundColor = UIColor.blue
+			}
+			dest.expenseCost.text = String(expense.price)
+			dest.expenseName.text = expense.name
+			let when = expense.date as Date?
+			let formatter = DateFormatter()
+			formatter.dateFormat = "MM/dd/yyyy"
+			let result = formatter.string(from: when!)
+			dest.expenseDate.text = result
+			dest.expenseType.text = expense.type
+		}
+	}
 
 }
 extension ExpenseViewTable: UITableViewDataSource {
@@ -43,6 +66,13 @@ extension ExpenseViewTable: UITableViewDataSource {
 		cell.nameOfExpense.text = expense.name
 		cell.priceOfExpense.text = String(format: "$%.02f", expense.price)
 		return cell
+	}
+}
+extension ExpenseViewTable: ExpenseTableViewCellDelegate {
+	func cellTapped(sender: ExpenseTableCell) {
+		if let indexPath = expenseTable.indexPath(for: sender) {
+			performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[indexPath.row])
+		}
 	}
 }
 
