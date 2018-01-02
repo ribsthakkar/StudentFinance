@@ -15,8 +15,9 @@ class ExpenseTableCell: UITableViewCell {
 	
 	@IBOutlet weak var priceOfExpense: UILabel!
 	@IBOutlet weak var nameOfExpense: UILabel!
-	
-	weak var delegate: ExpenseTableViewCellDelegate?
+    @IBOutlet weak var moreInfo: UIButton!
+    
+	weak var delegate: ExpenseTableViewCellDelegate!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +28,11 @@ class ExpenseTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        //delegate.cellTapped(sender: self)
     }
 
 	@IBAction func infoTapped() {
-		delegate?.cellTapped(sender: self)
+		delegate.cellTapped(sender: self)
 	}
 	
 	override func prepareForReuse() {

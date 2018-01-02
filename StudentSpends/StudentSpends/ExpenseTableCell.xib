@@ -23,29 +23,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eu5-zD-NWP">
-                        <rect key="frame" x="359" y="19" width="30" height="34"/>
-                        <connections>
-                            <action selector="infoTapped" destination="81u-jJ-08V" eventType="touchUpInside" id="gGB-5G-gsr"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-1c-0rz">
-                        <rect key="frame" x="290" y="26" width="39" height="21"/>
+                        <rect key="frame" x="321" y="26" width="39" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-cV-4be">
+                        <rect key="frame" x="375" y="25" width="22" height="22"/>
+                        <connections>
+                            <action selector="infoTapped" destination="81u-jJ-08V" eventType="touchUpInside" id="kpH-eR-VM2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Eu5-zD-NWP" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="6sl-2S-L7Q"/>
+                    <constraint firstItem="TUd-cV-4be" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="1On-A4-BfY"/>
+                    <constraint firstAttribute="trailing" secondItem="TUd-cV-4be" secondAttribute="trailing" constant="7" id="6Yx-T1-KBW"/>
                     <constraint firstItem="6Cv-nU-jrl" firstAttribute="leading" secondItem="56w-Yu-W43" secondAttribute="leading" constant="20" id="a8c-yf-Kny"/>
-                    <constraint firstItem="Eu5-zD-NWP" firstAttribute="leading" secondItem="uhY-1c-0rz" secondAttribute="trailing" constant="30" id="lmI-D4-UCu"/>
                     <constraint firstItem="uhY-1c-0rz" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="mrU-Bb-n2L"/>
                     <constraint firstItem="6Cv-nU-jrl" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="qOY-uv-JlO"/>
-                    <constraint firstAttribute="trailing" secondItem="Eu5-zD-NWP" secondAttribute="trailing" constant="15" id="vId-nZ-ko1"/>
+                    <constraint firstItem="TUd-cV-4be" firstAttribute="leading" secondItem="uhY-1c-0rz" secondAttribute="trailing" constant="15" id="ype-3w-iiG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="moreInfo" destination="TUd-cV-4be" id="AG4-Zv-GYR"/>
                 <outlet property="nameOfExpense" destination="6Cv-nU-jrl" id="kLH-YC-ffQ"/>
                 <outlet property="priceOfExpense" destination="uhY-1c-0rz" id="hfK-6i-RKt"/>
             </connections>

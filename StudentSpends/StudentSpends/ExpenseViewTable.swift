@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ExpenseViewTable: UIViewController {
+class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
 	
 	
 	@IBOutlet weak var expenseTable: UITableView!
@@ -24,6 +24,7 @@ class ExpenseViewTable: UIViewController {
 			let expenses = try PersistanceService.context.fetch(fetchRequest)
 			self.allExpenses = expenses
 		} catch{}
+		expenseTable.allowsSelection = false;
 		expenseTable.reloadData()
         // Do any additional setup after loading the view.
     }
@@ -34,23 +35,14 @@ class ExpenseViewTable: UIViewController {
 			//Initial your second view data control
 			let dest = segue.destination as! ExpenseDetails
 			let expense = sender as! Expense
-			if let imageOfExpense = expense.image{
-				dest.expensePhoto.backgroundColor = UIColor.clear
-				dest.expensePhoto.image = imageOfExpense as? UIImage
-			} else{
-				dest.expensePhoto.backgroundColor = UIColor.blue
-			}
-			dest.expenseCost.text = String(expense.price)
-			dest.expenseName.text = expense.name
-			let when = expense.date as Date?
-			let formatter = DateFormatter()
-			formatter.dateFormat = "MM/dd/yyyy"
-			let result = formatter.string(from: when!)
-			dest.expenseDate.text = result
-			dest.expenseType.text = expense.type
+			dest.expenseObject = expense
 		}
 	}
-
+	func cellTapped(sender: ExpenseTableCell) {
+		if let indexPath = expenseTable.indexPath(for: sender) {
+			performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[indexPath.row])
+		}
+	}
 }
 extension ExpenseViewTable: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) ->Int{
@@ -65,14 +57,8 @@ extension ExpenseViewTable: UITableViewDataSource {
 		let expense = allExpenses[indexPath.row]
 		cell.nameOfExpense.text = expense.name
 		cell.priceOfExpense.text = String(format: "$%.02f", expense.price)
+		cell.delegate = self
 		return cell
-	}
-}
-extension ExpenseViewTable: ExpenseTableViewCellDelegate {
-	func cellTapped(sender: ExpenseTableCell) {
-		if let indexPath = expenseTable.indexPath(for: sender) {
-			performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[indexPath.row])
-		}
 	}
 }
 

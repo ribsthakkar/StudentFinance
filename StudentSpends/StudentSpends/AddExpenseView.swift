@@ -58,7 +58,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	@IBAction func buttonSave(){
 		let name = expenseName.text!
 		if(name.count <= 0){
-			performSegue(withIdentifier: "emptySubmit", sender: nil)
+			performSegue(withIdentifier: "cancelSegue", sender: nil)
 			return
 		}else{
 			expense.name = name
@@ -68,7 +68,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			expense.price = price
 		} else {
 			print("Not a valid number: \(expensePrice.text!)")
-			performSegue(withIdentifier: "emptySubmit", sender: nil)
+			performSegue(withIdentifier: "cancelSegue", sender: nil)
 			return
 		}
 		let date = expenseDate.date
