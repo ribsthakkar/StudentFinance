@@ -54,6 +54,7 @@ class ExpenseDetails: UIViewController {
 		expenseCost.text = ""
 		if segue.identifier == "deleteSegue" {
 			PersistanceService.context.delete(expenseObject)
+			PersistanceService.saveContext()
 		}
     }
 	

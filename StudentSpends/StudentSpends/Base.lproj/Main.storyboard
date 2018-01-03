@@ -18,38 +18,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef4-9r-eHu">
-                                <rect key="frame" x="136" y="248" width="103" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef4-9r-eHu">
+                                <rect key="frame" x="136" y="213" width="103" height="30"/>
                                 <state key="normal" title="View Expenses"/>
                                 <connections>
                                     <segue destination="EVz-5L-xng" kind="presentation" id="dlf-tO-UGS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-AZ-cod">
-                                <rect key="frame" x="128" y="286" width="119" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-AZ-cod">
+                                <rect key="frame" x="128" y="278" width="119" height="30"/>
                                 <state key="normal" title="Weekly Summary"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuJ-yt-k5p">
-                                <rect key="frame" x="125" y="336" width="125" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuJ-yt-k5p">
+                                <rect key="frame" x="125" y="343" width="125" height="30"/>
                                 <state key="normal" title="Monthly Summary"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETy-lV-aDx">
-                                <rect key="frame" x="132" y="381" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Yearly Summary"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Student Spends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-Ky-3oU">
-                                <rect key="frame" x="29" y="61" width="316" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Spends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-Ky-3oU">
+                                <rect key="frame" x="34" y="62" width="308" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETy-lV-aDx">
+                                <rect key="frame" x="132" y="408" width="111" height="30"/>
+                                <state key="normal" title="Yearly Summary"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CuJ-yt-k5p" firstAttribute="top" secondItem="uGU-AZ-cod" secondAttribute="bottom" constant="35" id="3HU-r3-EgP"/>
+                            <constraint firstItem="CuJ-yt-k5p" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5yk-rX-uvU"/>
+                            <constraint firstItem="ETy-lV-aDx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AK0-dk-rI0"/>
+                            <constraint firstItem="WzJ-Ky-3oU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="BLT-Vx-DqI"/>
+                            <constraint firstItem="ETy-lV-aDx" firstAttribute="top" secondItem="CuJ-yt-k5p" secondAttribute="bottom" constant="35" id="Yc4-wT-bdU"/>
+                            <constraint firstAttribute="bottom" secondItem="CuJ-yt-k5p" secondAttribute="bottom" constant="294" id="d89-8R-R9z"/>
+                            <constraint firstItem="uGU-AZ-cod" firstAttribute="top" secondItem="Ef4-9r-eHu" secondAttribute="bottom" constant="35" id="e3L-4h-4AG"/>
+                            <constraint firstItem="Ef4-9r-eHu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hN4-cP-LpU"/>
+                            <constraint firstItem="WzJ-Ky-3oU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ocw-Sa-jow"/>
+                            <constraint firstItem="uGU-AZ-cod" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r4b-dh-x6H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -65,8 +72,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zr6-tu-QlZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EVz-5L-xng" id="ORg-Wi-fTO"/>
+                                </connections>
+                            </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-Dz-Zf6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Expenses" id="k4e-eL-YIy">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="IKm-sv-dOA">
@@ -82,19 +96,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zr6-tu-QlZ">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="EVz-5L-xng" id="ORg-Wi-fTO"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zr6-tu-QlZ" firstAttribute="leading" secondItem="UX1-R1-fCD" secondAttribute="leading" id="1ug-3b-Juk"/>
                             <constraint firstItem="zr6-tu-QlZ" firstAttribute="bottom" secondItem="UX1-R1-fCD" secondAttribute="bottom" id="TfL-26-fc6"/>
-                            <constraint firstItem="q6u-Dz-Zf6" firstAttribute="top" secondItem="5Ei-sW-Pbt" secondAttribute="top" id="ZbY-fg-H6c"/>
+                            <constraint firstItem="q6u-Dz-Zf6" firstAttribute="top" secondItem="5Ei-sW-Pbt" secondAttribute="top" constant="20" id="ZbY-fg-H6c"/>
                             <constraint firstItem="zr6-tu-QlZ" firstAttribute="trailing" secondItem="UX1-R1-fCD" secondAttribute="trailing" id="cbv-Bc-4x1"/>
                             <constraint firstItem="zr6-tu-QlZ" firstAttribute="top" secondItem="q6u-Dz-Zf6" secondAttribute="bottom" id="ctn-Da-ngc"/>
                             <constraint firstItem="q6u-Dz-Zf6" firstAttribute="trailing" secondItem="UX1-R1-fCD" secondAttribute="trailing" id="hbH-L1-Pfb"/>
@@ -119,12 +126,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-Wx-i1R">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Expense Details" id="Bix-Ea-bLP"/>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t0D-5C-cRd">
                                 <rect key="frame" x="16" y="76" width="343" height="400"/>
                             </imageView>
@@ -153,14 +154,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC7-ms-Z9y">
-                                <rect key="frame" x="107.5" y="606" width="37" height="30"/>
+                                <rect key="frame" x="94" y="606" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="EVz-5L-xng" kind="presentation" id="G69-CB-wJR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrh-c1-c4v">
-                                <rect key="frame" x="230.5" y="606" width="45" height="30"/>
+                                <rect key="frame" x="240" y="606" width="45" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -168,26 +169,32 @@
                                     <segue destination="EVz-5L-xng" kind="presentation" identifier="deleteSegue" id="Nh0-i7-ysP"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-Wx-i1R">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Expense Details" id="Bix-Ea-bLP"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t0D-5C-cRd" firstAttribute="centerX" secondItem="zyS-Wx-i1R" secondAttribute="centerX" id="5ak-45-gQs"/>
                             <constraint firstItem="C4l-nb-42b" firstAttribute="top" secondItem="VnK-fH-Df5" secondAttribute="bottom" constant="10" id="6gg-Wa-uRz"/>
                             <constraint firstItem="vbg-Qv-RbM" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" id="Abn-rt-eDi"/>
-                            <constraint firstItem="t0D-5C-cRd" firstAttribute="top" secondItem="zyS-Wx-i1R" secondAttribute="bottom" constant="32" id="BIP-BB-zyW"/>
+                            <constraint firstItem="jC7-ms-Z9y" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" constant="-75" id="Apb-kB-qnA"/>
+                            <constraint firstItem="t0D-5C-cRd" firstAttribute="top" secondItem="zyS-Wx-i1R" secondAttribute="bottom" constant="12" id="BIP-BB-zyW"/>
                             <constraint firstItem="VnK-fH-Df5" firstAttribute="top" secondItem="vbg-Qv-RbM" secondAttribute="bottom" constant="10" id="GI8-UG-Y2e"/>
                             <constraint firstItem="1b7-zf-exM" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" id="Hef-88-cJo"/>
                             <constraint firstItem="Dem-nl-mSF" firstAttribute="bottom" secondItem="t0D-5C-cRd" secondAttribute="bottom" constant="191" id="NGB-B6-wNA"/>
-                            <constraint firstItem="zyS-Wx-i1R" firstAttribute="top" secondItem="Dem-nl-mSF" secondAttribute="top" constant="-20" id="OYw-gs-odk"/>
+                            <constraint firstItem="zyS-Wx-i1R" firstAttribute="top" secondItem="Dem-nl-mSF" secondAttribute="top" id="OYw-gs-odk"/>
                             <constraint firstItem="t0D-5C-cRd" firstAttribute="leading" secondItem="Dem-nl-mSF" secondAttribute="leading" constant="16" id="Owv-Cu-G5r"/>
                             <constraint firstItem="C4l-nb-42b" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" id="Saa-f2-iII"/>
                             <constraint firstItem="zyS-Wx-i1R" firstAttribute="leading" secondItem="SJi-93-aHN" secondAttribute="leading" id="U4Q-56-OY0"/>
-                            <constraint firstItem="xrh-c1-c4v" firstAttribute="leading" secondItem="C4l-nb-42b" secondAttribute="trailing" constant="25" id="WyT-kj-xbf"/>
                             <constraint firstItem="vbg-Qv-RbM" firstAttribute="top" secondItem="1b7-zf-exM" secondAttribute="bottom" constant="10" id="XDZ-NK-vqB"/>
                             <constraint firstItem="Dem-nl-mSF" firstAttribute="trailing" secondItem="t0D-5C-cRd" secondAttribute="trailing" constant="16" id="aHy-RV-CkZ"/>
                             <constraint firstItem="VnK-fH-Df5" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" id="c8Q-NP-Ai0"/>
                             <constraint firstItem="xrh-c1-c4v" firstAttribute="top" secondItem="C4l-nb-42b" secondAttribute="bottom" constant="8" id="ezD-ra-cyo"/>
-                            <constraint firstItem="C4l-nb-42b" firstAttribute="leading" secondItem="jC7-ms-Z9y" secondAttribute="trailing" constant="25" id="hER-qW-6We"/>
+                            <constraint firstItem="xrh-c1-c4v" firstAttribute="centerX" secondItem="Dem-nl-mSF" secondAttribute="centerX" constant="75" id="jhI-HE-reS"/>
                             <constraint firstItem="1b7-zf-exM" firstAttribute="top" secondItem="t0D-5C-cRd" secondAttribute="bottom" constant="8" id="r5G-XZ-WT5"/>
                             <constraint firstItem="jC7-ms-Z9y" firstAttribute="top" secondItem="C4l-nb-42b" secondAttribute="bottom" constant="8" id="rKj-wc-xiV"/>
                             <constraint firstAttribute="trailing" secondItem="zyS-Wx-i1R" secondAttribute="trailing" id="wub-nk-XxU"/>
