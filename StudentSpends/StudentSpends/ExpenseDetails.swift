@@ -52,7 +52,7 @@ class ExpenseDetails: UIViewController {
 		expenseName.text = ""
 		expenseDate.text = ""
 		expenseCost.text = ""
-		if segue.identifier == "detailExpenseSegue" {
+		if segue.identifier == "deleteSegue" {
 			PersistanceService.context.delete(expenseObject)
 		}
     }
