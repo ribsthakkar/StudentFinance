@@ -6,6 +6,5 @@ target 'StudentSpends' do
   use_frameworks!
 
   # Pods for StudentSpends
-  pod 'Charts', :git=> 'https://www.github.com/danielgindi/Charts.git', :branch=> 'master'
-
+pod 'Charts'
 end
