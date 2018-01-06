@@ -16,7 +16,9 @@ class GraphsViewController: UIViewController {
         // Do any additional setup after loading the view.
 		updateLineGraph()
     }
-
+	override func viewDidAppear(_ animated: Bool) {
+		updateLineGraph()
+	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,12 +36,15 @@ class GraphsViewController: UIViewController {
 			let value = ChartDataEntry(x: Double(i), y: expensesByDate[keys[i]]!) // here we set the X and Y status in a data chart entry
 			lineChartEntry.append(value) // here we add it to the data set
 		}
-		let line1 = LineChartDataSet(values: lineChartEntry, label: "Total Expenses") //Here we convert lineChartEntry to a LineChartDataSet
+		let line1 = LineChartDataSet(values: lineChartEntry.reversed(), label: "Total Expenses") //Here we convert lineChartEntry to a LineChartDataSet
 		line1.colors = [NSUIColor.blue] //Sets the colour to blue
 		
 		let data = LineChartData() //This is the object that will be added to the chart
 		data.addDataSet(line1) //Adds the line to the dataSet
-		
+		lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: keys.reversed())
+		lineChart.xAxis.granularityEnabled = true
+		lineChart.xAxis.granularity = 1
+		lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
 		lineChart.noDataText = "No data yet"
 		lineChart.data = data //finally - it adds the chart data to the chart and causes an update
 		lineChart.chartDescription?.text = "My Expenses" // Here we set the description for the graph

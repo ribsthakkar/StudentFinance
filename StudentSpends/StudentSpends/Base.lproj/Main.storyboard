@@ -205,8 +205,10 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrm-Dw-smO">
-                                <rect key="frame" x="93" y="603" width="189" height="30"/>
-                                <state key="normal" title="View Expense Chart by Day"/>
+                                <rect key="frame" x="173" y="603" width="30" height="30"/>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.99125522375106812" green="0.99628156423568726" blue="0.99603790044784546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="fpm-j1-vuX" kind="presentation" id="YEo-R3-UGW"/>
                                 </connections>

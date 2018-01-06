@@ -50,7 +50,9 @@ class ViewController: UIViewController {
 		while index < allExpenses.count && done == false {
 			let when = allExpenses[index].date! as Date
 			let days = Calendar.current.component(.day, from: when)
-			if(days <= 6) {
+			let years = Calendar.current.component(.year, from: when) - Calendar.current.component(.year, from: Date())
+			//let components = calendar.dateComponents([Calendar.Component.day], from: when, to: D)
+			if(days <= 6 && years == 0) {
 				if let curr = weekExpensesByDate[formatter.string(from: when)]{
 					weekExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
 				} else{
@@ -68,10 +70,13 @@ class ViewController: UIViewController {
 		var done = false
 		while index < allExpenses.count && done == false {
 			let when = allExpenses[index].date! as Date
-			let format = DateFormatter()
-			format.dateFormat = "MM"
-			if(format.string(from: when) == format.string(from: Date())) {
-				if let curr = weekExpensesByDate[formatter.string(from: when)]{
+			let monthFormat = DateFormatter()
+			let yearFormat = DateFormatter()
+			monthFormat.dateFormat = "MM"
+			yearFormat.dateFormat = "yyyy"
+			print(formatter.string(from: when))
+			if(monthFormat.string(from: when) == monthFormat.string(from: Date()) && yearFormat.string(from: when) == yearFormat.string(from: Date())) {
+				if let curr = monthExpensesByDate[formatter.string(from: when)]{
 					monthExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
 				} else{
 					monthExpensesByDate.updateValue(allExpenses[index].price, forKey: formatter.string(from: when))

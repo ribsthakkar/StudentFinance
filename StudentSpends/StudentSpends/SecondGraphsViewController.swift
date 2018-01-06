@@ -16,7 +16,9 @@ class SecondGraphsViewController: UIViewController {
 		updatePieGraph()
         // Do any additional setup after loading the view.
     }
-
+	override func viewDidAppear(_ animated: Bool) {
+		updatePieGraph()
+	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,7 +38,7 @@ class SecondGraphsViewController: UIViewController {
 		}
 		
 		// 3. chart setup
-		let set = PieChartDataSet( values: entries, label: "Expenses")
+		let set = PieChartDataSet( values: entries.reversed(), label: "Expenses")
 		// this is custom extension method. Download the code for more details.
 		var colors: [UIColor] = []
 		
@@ -50,6 +52,7 @@ class SecondGraphsViewController: UIViewController {
 		set.colors = colors
 		let data = PieChartData(dataSet: set)
 		pieChart.data = data
+		pieChart.chartDescription?.text = "Expenses by type"
 		pieChart.noDataText = "No data available"
 		pieChart.holeRadiusPercent = 0.2
 		pieChart.transparentCircleColor = UIColor.clear
