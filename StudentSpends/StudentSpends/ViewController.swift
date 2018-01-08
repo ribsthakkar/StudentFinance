@@ -29,9 +29,9 @@ class ViewController: UIViewController {
 	var weekExpensesByDate = Dictionary<String, Double>()
 	var monthExpensesByDate = Dictionary<String, Double>()
 	var yearExpensesByDate = Dictionary<String, Double>()
-	var weekExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
-	var monthExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
-	var yearExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
+	var weekExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
+	var monthExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
+	var yearExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
 	
 	func getData() {
 		let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
@@ -47,18 +47,19 @@ class ViewController: UIViewController {
 	func setupWeeklyGraphValues(){
 		var index = 0
 		var done = false
+		for time in -7...0{
+			let calendar = Calendar.current
+			let daysAway = calendar.date(byAdding: .day, value: time, to: Date())
+			weekExpensesByDate.updateValue(0.00, forKey: formatter.string(from: daysAway!))
+		}
 		while index < allExpenses.count && done == false {
 			let when = allExpenses[index].date! as Date
-			let days = Calendar.current.component(.day, from: when)
 			let years = Calendar.current.component(.year, from: when) - Calendar.current.component(.year, from: Date())
-			//let components = calendar.dateComponents([Calendar.Component.day], from: when, to: D)
-			if(days <= 6 && years == 0) {
+			if(years == 0) {
 				if let curr = weekExpensesByDate[formatter.string(from: when)]{
 					weekExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
-				} else{
-					weekExpensesByDate.updateValue(allExpenses[index].price, forKey: formatter.string(from: when))
+					weekExpensesByCategory.updateValue(allExpenses[index].price + weekExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-				weekExpensesByCategory.updateValue(allExpenses[index].price + weekExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 			} else {
 				done = true
 			}
@@ -68,6 +69,14 @@ class ViewController: UIViewController {
 	func setupMonthGraphValues(){
 		var index = 0
 		var done = false
+		let dayFormat = DateFormatter()
+		dayFormat.dateFormat = "dd"
+		
+		for time in ((Int(dayFormat.string(from: Date()))! - 1) * -1)...0{
+			let calendar = Calendar.current
+			let daysAway = calendar.date(byAdding: .day, value: time, to: Date())
+			monthExpensesByDate.updateValue(0.00, forKey: formatter.string(from: daysAway!))
+		}
 		while index < allExpenses.count && done == false {
 			let when = allExpenses[index].date! as Date
 			let monthFormat = DateFormatter()
@@ -78,10 +87,8 @@ class ViewController: UIViewController {
 			if(monthFormat.string(from: when) == monthFormat.string(from: Date()) && yearFormat.string(from: when) == yearFormat.string(from: Date())) {
 				if let curr = monthExpensesByDate[formatter.string(from: when)]{
 					monthExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
-				} else{
-					monthExpensesByDate.updateValue(allExpenses[index].price, forKey: formatter.string(from: when))
+					monthExpensesByCategory.updateValue(allExpenses[index].price + monthExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-				monthExpensesByCategory.updateValue(allExpenses[index].price + monthExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 			} else {
 				done = true
 			}
@@ -91,17 +98,21 @@ class ViewController: UIViewController {
 	func setupYearGraphValues() {
 		var index = 0
 		var done = false
+		let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+		for month in 0..<months.count{
+			yearExpensesByDate.updateValue(0.00, forKey: months[month])
+		}
 		while index < allExpenses.count && done == false {
 			let when = allExpenses[index].date! as Date
 			let format = DateFormatter()
 			format.dateFormat = "yyyy"
+			let otherFormat = DateFormatter()
+			otherFormat.dateFormat = "MM"
 			if(format.string(from: when) == format.string(from: Date())) {
-				if let curr = yearExpensesByDate[formatter.string(from: when)]{
-					yearExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
-				} else{
-					yearExpensesByDate.updateValue(allExpenses[index].price, forKey: formatter.string(from: when))
+				if let curr = yearExpensesByDate[months[Int(otherFormat.string(from: when))!]]{
+					yearExpensesByDate.updateValue(curr + allExpenses[index].price, forKey: months[Int(otherFormat.string(from: when))!])
+					yearExpensesByCategory.updateValue(allExpenses[index].price + yearExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-				yearExpensesByCategory.updateValue(allExpenses[index].price + yearExpensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 			} else {
 				done = true
 			}

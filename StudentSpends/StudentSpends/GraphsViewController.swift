@@ -30,18 +30,24 @@ class GraphsViewController: UIViewController {
 
     func updateLineGraph(){
 		var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
-		let keys = Array(expensesByDate.keys)
+		var keys = Array(expensesByDate.keys).sorted()
+		lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: keys.sorted())
+		
+		if let _ = expensesByDate["Jan"]{
+			keys = Array(expensesByDate.keys)
+			let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+			lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
+		}
 		//here is the for loop
 		for i in 0..<expensesByDate.count {
 			let value = ChartDataEntry(x: Double(i), y: expensesByDate[keys[i]]!) // here we set the X and Y status in a data chart entry
 			lineChartEntry.append(value) // here we add it to the data set
 		}
-		let line1 = LineChartDataSet(values: lineChartEntry.reversed(), label: "Total Expenses") //Here we convert lineChartEntry to a LineChartDataSet
+		let line1 = LineChartDataSet(values: lineChartEntry, label: "Total Expenses") //Here we convert lineChartEntry to a LineChartDataSet
 		line1.colors = [NSUIColor.blue] //Sets the colour to blue
 		
 		let data = LineChartData() //This is the object that will be added to the chart
 		data.addDataSet(line1) //Adds the line to the dataSet
-		lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: keys.reversed())
 		lineChart.xAxis.granularityEnabled = true
 		lineChart.xAxis.granularity = 1
 		lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
