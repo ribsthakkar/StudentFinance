@@ -9,9 +9,14 @@
 import UIKit
 import Charts
 
-class GraphsViewController: UIViewController {
-
-    override func viewDidLoad() {
+class LineGraphViewController: UIViewController {
+	
+	//Setup storyboard connections and class variables
+	var expensesByDate = [String: Double]()
+	var expensesByCategory = [String: Double]()
+	@IBOutlet weak var lineChart: LineChartView!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 		updateLineGraph()
@@ -23,50 +28,53 @@ class GraphsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	var expensesByDate = [String: Double]()
-	var expensesByCategory = [String: Double]()
 	
-    @IBOutlet weak var lineChart: LineChartView!
-
     func updateLineGraph(){
-		var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
+		//create ChartDataEntry object to hold the entries
+		var lineChartEntry  = [ChartDataEntry]()
+		//Access array of sorted keys from dictionary
 		var keys = Array(expensesByDate.keys).sorted()
+		//Format x-axis with the sorted keys
 		lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: keys.sorted())
 		
+		//if keys are listed by month then format the x-axis by the given array of months
 		if let _ = expensesByDate["Jan"]{
 			keys = Array(expensesByDate.keys)
 			let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 			lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
 		}
-		//here is the for loop
+		
+		//loop through the expenses and add them to the LineChartEntry array
 		for i in 0..<expensesByDate.count {
-			let value = ChartDataEntry(x: Double(i), y: expensesByDate[keys[i]]!) // here we set the X and Y status in a data chart entry
-			lineChartEntry.append(value) // here we add it to the data set
+			let value = ChartDataEntry(x: Double(i), y: expensesByDate[keys[i]]!)
+			lineChartEntry.append(value)
 		}
-		let line1 = LineChartDataSet(values: lineChartEntry, label: "Total Expenses") //Here we convert lineChartEntry to a LineChartDataSet
+		//Create LineChartDataSet object
+		let line1 = LineChartDataSet(values: lineChartEntry, label: "Total Expenses")
 		line1.colors = [NSUIColor.blue] //Sets the colour to blue
 		
-		let data = LineChartData() //This is the object that will be added to the chart
-		data.addDataSet(line1) //Adds the line to the dataSet
+		//Set the data and other descriptors for the lineChart
+		let data = LineChartData()
+		data.addDataSet(line1)
 		lineChart.xAxis.granularityEnabled = true
 		lineChart.xAxis.granularity = 1
 		lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
 		lineChart.noDataText = "No data yet"
-		lineChart.data = data //finally - it adds the chart data to the chart and causes an update
-		lineChart.chartDescription?.text = "My Expenses" // Here we set the description for the graph
+		lineChart.data = data
+		lineChart.chartDescription?.text = "My Expenses"
 	}
-
+	
+	//if button is pressed, the view will segue to the pie chart which shows expenses by category
     @IBAction func presentPieGraph(_ sender: Any) {
         performSegue(withIdentifier: "categorySegue", sender: expensesByCategory)
     }
     // MARK: - Navigation
 	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
+	// Prepare for the segues
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
+		//If we are about to show the pieChart, update the dictionary with the expenses by category before landing on that view
 		if(segue.identifier == "categorySegue"){
-			let dest = segue.destination as! SecondGraphsViewController
+			let dest = segue.destination as! PieGraphViewController
             dest.expensesByCategory = sender as! [String : Double]
 		}
 	}

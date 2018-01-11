@@ -10,60 +10,52 @@ import UIKit
 import CoreData
 
 class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-	func numberOfComponents(in pickerView: UIPickerView) -> Int {
-		return 1
-	}
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		self.view.endEditing(true)
-		return false
-	}
+	
+	//Connections to story board and class instance variables
+	@IBOutlet var expenseName: UITextField!
+	@IBOutlet var expensePrice: UITextField!
+	@IBOutlet var expenseDate: UIDatePicker!
+	@IBOutlet var expenseType: UIPickerView!
+	@IBOutlet weak var submitButton: UIButton!
 	var expense = Expense(context:PersistanceService.context)
 	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies","Other"];
-    override func viewDidLoad() {
+	
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 		// Do any additional setup after loading the view.
+		//setup the input objects' delegates and restrictions
 		expenseDate.maximumDate = Date()
 		self.expenseType.dataSource = self
 		self.expenseType.delegate = self
 		self.expenseName.delegate = self
 		self.expensePrice.delegate = self
-//		if((expense.name?.isEqual(""))! && expense.price == 0 && (expense.type?.isEqual(""))! && (expense.date?.isEqual(Date() as NSDate))!) {
-//			self.expense = Expense(context:PersistanceService.context)
-//		} else {
-			expenseName.text = expense.name
-			expensePrice.text = String(expense.price)
-			if let tempDate = expense.date{
-				expenseDate.date = tempDate as Date
-			}
+		
+		//update prewritten information if there is any
+		expenseName.text = expense.name
+		expensePrice.text = String(expense.price)
+		if let tempDate = expense.date{
+			expenseDate.date = tempDate as Date
+		}
 		if let type = expense.type{
 			expenseType.selectRow(pickerDataSource.index(of: type)!, inComponent: 0, animated: false)
 		}
-		//}
     }
-	override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?){
-		view.endEditing(true)
-		super.touchesBegan(touches, with: with)
-	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-	@IBOutlet var expenseName: UITextField!
-	@IBOutlet var expensePrice: UITextField!
-	@IBOutlet var expenseDate: UIDatePicker!
-	@IBOutlet var expenseType: UIPickerView!
-
-	@IBOutlet weak var submitButton: UIButton!
 	@IBAction func buttonSave(){
 		let name = expenseName.text!
+		//if empty name is submit then automatically cancel or else upate expense object name
 		if(name.count <= 0){
 			performSegue(withIdentifier: "cancelSegue", sender: nil)
 			return
-		}else{
+		} else{
 			expense.name = name
 		}
 		
+		//if empty price is submit then automatically cancel or else update expense object price
 		if let price = Double(expensePrice.text!) {
 			expense.price = price
 		} else {
@@ -71,14 +63,21 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			performSegue(withIdentifier: "cancelSegue", sender: nil)
 			return
 		}
+		
+		//update expense object date
 		let date = expenseDate.date
 		expense.date = date as NSDate
 		
+		//update expense object type
 		let type = pickerDataSource[expenseType.selectedRow(inComponent: 0)]
 		expense.type = type
+		
+		//save to CoreData and perform segue to return to tableView of expenses
 		PersistanceService.saveContext()
 		performSegue(withIdentifier: "submitSegue", sender: expense)
 	}
+	
+	//Methods to setup the PICKERVIEW for the expenseType picker
 	// The number of rows of data
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerDataSource.count
@@ -88,33 +87,24 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return pickerDataSource[row]
 	}
+	//number of columns in data
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+		return 1
+	}
 	
+	//methods to close keyboard once we're done typing
+	override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?){
+		view.endEditing(true)
+		super.touchesBegan(touches, with: with)
+	}
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		self.view.endEditing(true)
+		return false
+	}
 	
-	// MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-		if segue.identifier == "submitSegue" {
-			
-			//Initial your second view data control
-			let ExchangeViewData = segue.destination as! ExpenseViewTable
-			
-			//Send your data with segue
-//            print((sender as! Expense).type)
-//            print((sender as! Expense).name)
-//            print((sender as! Expense).price)
-//            print((sender as! Expense).date)
-			ExchangeViewData.allExpenses.append(sender as! Expense)
-		}
-		if(segue.identifier == "cancelSegue"){
-			PersistanceService.context.delete(expense)
-		}
-    }
-    
-    @IBAction func takePhoto(_ sender: Any) {
+	//Methods to allow CAMERA functionality for the receipts
+	@IBAction func takePhoto(_ sender: Any) {
+		//if we can access camera, allow imagePicker to use camera as source and save picture to expense's image field in CoreData
 		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
 			let imagePicker = UIImagePickerController()
 			imagePicker.delegate = self
@@ -123,12 +113,28 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			self.present(imagePicker, animated: true, completion: nil)
 			
 		}
-    }
+	}
+	//method to update the Expense instance
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let pickedImage: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
 			expense.image = pickedImage
 		}
 		picker.dismiss(animated: true, completion: nil)
 	}
+	
+	// MARK: - Navigation
+
+	//Method to prepare for segue
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       	//If the segue is to submit the data, then we update the list of all expenses for the table
+		if segue.identifier == "submitSegue" {
+			let ExchangeViewData = segue.destination as! ExpenseViewTable
+			ExchangeViewData.allExpenses.append(sender as! Expense)
+		}
+		//if expense is canceled, then delete it from CoreData
+		if(segue.identifier == "cancelSegue"){
+			PersistanceService.context.delete(expense)
+		}
+    }
     
 }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C1169641FFED39900BBF810 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1169631FFED39900BBF810 /* GraphsViewController.swift */; };
-		3C11696C1FFF3D7400BBF810 /* SecondGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11696B1FFF3D7400BBF810 /* SecondGraphsViewController.swift */; };
+		3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1169631FFED39900BBF810 /* LineGraphViewController.swift */; };
+		3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */; };
 		3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */; };
 		3C4BAC551FF94DE9002F4985 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */; };
 		3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */; };
@@ -19,7 +19,7 @@
 		3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */; };
 		3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */; };
 		3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */; };
-		3CED836B1FF6ED9E006D0D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED836A1FF6ED9E006D0D30 /* ViewController.swift */; };
+		3CED836B1FF6ED9E006D0D30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */; };
 		3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836C1FF6ED9E006D0D30 /* Main.storyboard */; };
 		3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */; };
 		3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */; };
@@ -28,8 +28,8 @@
 
 /* Begin PBXFileReference section */
 		3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudentSpends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C1169631FFED39900BBF810 /* GraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
-		3C11696B1FFF3D7400BBF810 /* SecondGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGraphsViewController.swift; sourceTree = "<group>"; };
+		3C1169631FFED39900BBF810 /* LineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphViewController.swift; sourceTree = "<group>"; };
+		3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
 		3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewTable.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetails.swift; sourceTree = "<group>"; };
 		3CED83651FF6ED9E006D0D30 /* StudentSpends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSpends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CED836A1FF6ED9E006D0D30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3CED836D1FF6ED9E006D0D30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CED83721FF6ED9E006D0D30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,15 +98,15 @@
 				3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */,
 				3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */,
 				3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */,
-				3CED836A1FF6ED9E006D0D30 /* ViewController.swift */,
+				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
 				3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */,
 				3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */,
 				3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */,
 				3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */,
 				3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
-				3C11696B1FFF3D7400BBF810 /* SecondGraphsViewController.swift */,
-				3C1169631FFED39900BBF810 /* GraphsViewController.swift */,
+				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
+				3C1169631FFED39900BBF810 /* LineGraphViewController.swift */,
 				3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */,
 				3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */,
 				3CED83741FF6ED9E006D0D30 /* Info.plist */,
@@ -256,13 +256,13 @@
 				3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */,
 				3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */,
 				3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */,
-				3CED836B1FF6ED9E006D0D30 /* ViewController.swift in Sources */,
+				3CED836B1FF6ED9E006D0D30 /* MainViewController.swift in Sources */,
 				3C4BAC551FF94DE9002F4985 /* Expense+CoreDataProperties.swift in Sources */,
-				3C11696C1FFF3D7400BBF810 /* SecondGraphsViewController.swift in Sources */,
+				3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */,
 				3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */,
 				3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */,
 				3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */,
-				3C1169641FFED39900BBF810 /* GraphsViewController.swift in Sources */,
+				3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */,
 				3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

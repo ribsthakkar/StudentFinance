@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="711.20000000000005" y="-399.85007496251876"/>
         </scene>
-        <!--Graphs View Controller-->
+        <!--Line Graph View Controller-->
         <scene sceneID="lEM-dW-89m">
             <objects>
-                <viewController id="fpm-j1-vuX" customClass="GraphsViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fpm-j1-vuX" customClass="LineGraphViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0q-Zr-igI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="-636" y="471.8140929535233"/>
         </scene>
-        <!--Second Graphs View Controller-->
+        <!--Pie Graph View Controller-->
         <scene sceneID="MTb-h8-2vv">
             <objects>
-                <viewController id="8ph-kp-pYK" customClass="SecondGraphsViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8ph-kp-pYK" customClass="PieGraphViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRN-hs-U6F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
