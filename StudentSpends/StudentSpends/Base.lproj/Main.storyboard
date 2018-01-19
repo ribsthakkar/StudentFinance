@@ -148,7 +148,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="NG7-Bx-1lk">
                                             <connections>
-                                                <action selector="editDateRanges:" destination="fpm-j1-vuX" id="RNa-cZ-I1Q"/>
+                                                <action selector="editDateRanges:" destination="fpm-j1-vuX" id="EFK-jd-0Ft"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -183,6 +183,9 @@
                     <connections>
                         <outlet property="lineChart" destination="poB-4D-Yc0" id="1Tx-Ey-VJV"/>
                         <segue destination="8ph-kp-pYK" kind="presentation" identifier="categorySegue" id="lgW-fK-jne"/>
+                        <segue destination="snk-fZ-rWH" kind="presentation" identifier="weekEditor" id="eNz-t5-1lO"/>
+                        <segue destination="gag-sv-P3s" kind="presentation" identifier="monthEditor" id="C7c-ro-e6A"/>
+                        <segue destination="pU5-n0-zfz" kind="presentation" identifier="yearEditor" id="tvn-b5-qUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIe-QH-LIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,7 +212,7 @@
                                     <navigationItem title="Chart Data" id="0xn-IN-Pm2">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="aEz-8d-t55">
                                             <connections>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" id="c4u-Hq-KOB"/>
+                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedWeek" id="c4u-Hq-KOB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -236,10 +239,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tPC-AS-8K5"/>
                     </view>
+                    <connections>
+                        <outlet property="dateUpdate" destination="hLd-g4-Ae1" id="u25-8e-jdI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTG-ez-OSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1463" y="1272"/>
+            <point key="canvasLocation" x="-1470" y="1532"/>
         </scene>
         <!--Pie Graph View Controller-->
         <scene sceneID="MTb-h8-2vv">
@@ -555,10 +561,10 @@
             </objects>
             <point key="canvasLocation" x="2462" y="-401"/>
         </scene>
-        <!--Update Week Range-->
+        <!--Update Month Range-->
         <scene sceneID="iPD-aM-yPL">
             <objects>
-                <viewController id="gag-sv-P3s" customClass="UpdateWeekRange" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gag-sv-P3s" customClass="UpdateMonthRange" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iwg-YR-HP7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -575,7 +581,8 @@
                                     <navigationItem title="Chart Data" id="3Ib-6w-b1e">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="CMz-4o-dnV">
                                             <connections>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" id="anV-wM-sLP"/>
+                                                <action selector="updateGraphDateRange:" destination="gag-sv-P3s" id="YJw-FI-Hia"/>
+                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedMonth" id="anV-wM-sLP"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -599,15 +606,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yer-6Q-mCr"/>
                     </view>
+                    <connections>
+                        <outlet property="monthYearOptions" destination="k8D-HL-ZOU" id="qLB-qP-FaG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMD-iz-Lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="1272"/>
+            <point key="canvasLocation" x="-636" y="1533"/>
         </scene>
-        <!--Update Week Range-->
+        <!--Update Year Range-->
         <scene sceneID="uya-qq-dih">
             <objects>
-                <viewController id="pU5-n0-zfz" customClass="UpdateWeekRange" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pU5-n0-zfz" customClass="UpdateYearRange" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="726-Nm-2Qb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -624,7 +634,7 @@
                                     <navigationItem title="Chart Data" id="uap-Qp-aU7">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="dxn-sO-Mxf">
                                             <connections>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" id="HK7-q9-9SQ"/>
+                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedYear" id="HK7-q9-9SQ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -648,14 +658,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qJB-0Z-HqL"/>
                     </view>
+                    <connections>
+                        <outlet property="yearOptions" destination="tYi-O9-G4s" id="raY-by-CP5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LE-Fw-9LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="1273"/>
+            <point key="canvasLocation" x="292" y="1532"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c4u-Hq-KOB"/>
+        <segue reference="anV-wM-sLP"/>
         <segue reference="dlf-tO-UGS"/>
         <segue reference="oPo-UL-erX"/>
     </inferredMetricsTieBreakers>

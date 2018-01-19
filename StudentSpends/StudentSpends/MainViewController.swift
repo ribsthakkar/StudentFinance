@@ -59,23 +59,23 @@ class MainViewController: UIViewController {
 	//method to perform segue and send the dictionaries for week
 	@IBAction func viewWeekGraphs(_ sender: Any) {
 		//create an array of dictionaries to send while perfomring segue
-		performSegue(withIdentifier: "graphSegue", sender: nil)
 		week = true
+		performSegue(withIdentifier: "graphSegue", sender: nil)
 		
 	}
 	
 	//method to perform segue and send the dictionaries for month
 	@IBAction func viewMonthGraphs(_ sender: Any) {
 		//create an array of dictionaries to send while performing segue
-		performSegue(withIdentifier: "graphSegue", sender: nil)
 		month = true
+		performSegue(withIdentifier: "graphSegue", sender: nil)
 	}
 	
 	//method to perform segue and send dictionaries for year
 	@IBAction func viewYearGraphs(_ sender: Any) {
 		//create array of dictionaries to send while performing segue
-		performSegue(withIdentifier: "graphSegue", sender: nil)
 		year = true
+		performSegue(withIdentifier: "graphSegue", sender: nil)
 	}
 	
 	//method to send data before segue
@@ -85,17 +85,13 @@ class MainViewController: UIViewController {
 		if(segue.identifier == "graphSegue"){
 			let dest = segue.destination as! LineGraphViewController
 			dest.allExpenses = allExpenses
-			dest.formatter.dateFormat = "MM/dd"
 			if(week){
 				dest.setupWeeklyGraphValuesFrom(weekOf: Date())
 				dest.week = true
-				dest.month = true
-				dest.year = true
 			}
 			else if(month){
 				dest.setupMonthGraphValuesFrom(monthOf: Date())
 				dest.month = true
-				dest.year = true
 			}
 			else{
 				dest.setupYearGraphValuesFrom(yearOf: Date())

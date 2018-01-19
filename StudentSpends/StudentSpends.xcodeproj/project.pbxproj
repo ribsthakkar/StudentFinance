@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1169631FFED39900BBF810 /* LineGraphViewController.swift */; };
 		3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */; };
+		3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */; };
+		3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972F02011100500DA12B5 /* UpdateYearRange.swift */; };
 		3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B80200E591400CF2C5A /* Charts.framework */; };
 		3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B82200E591800CF2C5A /* TesseractOCR.framework */; };
 		3C464B84200E5AC500CF2C5A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3C464B83200E5AC500CF2C5A /* tessdata */; };
@@ -109,6 +111,8 @@
 		3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudentSpends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C1169631FFED39900BBF810 /* LineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphViewController.swift; sourceTree = "<group>"; };
 		3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
+		3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMonthRange.swift; sourceTree = "<group>"; };
+		3C2972F02011100500DA12B5 /* UpdateYearRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateYearRange.swift; sourceTree = "<group>"; };
 		3C464B80200E591400CF2C5A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C464B82200E591800CF2C5A /* TesseractOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C464B83200E5AC500CF2C5A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -213,10 +217,12 @@
 				3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */,
 				3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
-				3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */,
-				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
 				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
+				3C2972F02011100500DA12B5 /* UpdateYearRange.swift */,
+				3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */,
+				3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */,
 				3C1169631FFED39900BBF810 /* LineGraphViewController.swift */,
+				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
 				3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */,
 				3C464B83200E5AC500CF2C5A /* tessdata */,
 				3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */,
@@ -428,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */,
+				3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */,
 				3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */,
 				3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */,
 				3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */,
@@ -440,6 +447,7 @@
 				3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */,
 				3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */,
 				3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */,
+				3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

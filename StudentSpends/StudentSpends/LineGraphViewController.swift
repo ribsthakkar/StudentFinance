@@ -8,7 +8,6 @@
 
 import UIKit
 import Charts
-import CoreData
 
 class LineGraphViewController: UIViewController {
 	
@@ -20,8 +19,11 @@ class LineGraphViewController: UIViewController {
 	var week = false
 	var month = false
 	var year = true
+	var date = Date()
 	@IBOutlet weak var lineChart: LineChartView!
     @IBAction func editDateRanges(_ sender: Any) {
+		
+		//Go to the specific picker of the range of dates initially picked
         if week {
             performSegue(withIdentifier: "weekEditor", sender: allExpenses)
         } else if month {
@@ -34,9 +36,15 @@ class LineGraphViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-		
-		//set main date format
-
+		formatter.dateFormat = "MM/dd"
+		//set date range for the graph
+		if(week){
+			setupWeeklyGraphValuesFrom(weekOf: date)
+		} else if(month){
+			setupMonthGraphValuesFrom(monthOf: date)
+		} else{
+			setupYearGraphValuesFrom(yearOf: date)
+		}
 		updateLineGraph()
     }
 	override func viewDidAppear(_ animated: Bool) {
@@ -55,8 +63,7 @@ class LineGraphViewController: UIViewController {
 		lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: keys.sorted())
 		
 		//if keys are listed by month then format the x-axis by the given array of months
-		if let _ = expensesByDate["Jan"]{
-			keys = Array(expensesByDate.keys)
+		if let _ = expensesByDate["01Jan"]{
 			let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 			lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
 		}
@@ -84,15 +91,15 @@ class LineGraphViewController: UIViewController {
 	//Method to setup the Dictionaries for the weekly time interval
 	func setupWeeklyGraphValuesFrom(weekOf: Date){
 		var index = 0
-		var done = false
 		//create keys in dictionary for the past seven days
 		for time in -7...0{
 			let calendar = Calendar.current
 			let daysAway = calendar.date(byAdding: .day, value: time, to: weekOf)
 			expensesByDate.updateValue(0.00, forKey: formatter.string(from: daysAway!))
 		}
+		
 		//loop through each of the expenses and update the dictionary values
-		while index < allExpenses.count && done == false {
+		while index < allExpenses.count {
 			let when = allExpenses[index].date! as Date //access date for the expense
 			
 			//find difference in number of years to make sure the date isn't more than a year away
@@ -103,18 +110,14 @@ class LineGraphViewController: UIViewController {
 					expensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
 					expensesByCategory.updateValue(allExpenses[index].price + expensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-			} else { //if we ever reach a date that doesn't meet this requirement we know following dates will not either
-				done = true
 			}
 			index += 1
 		}
 	}
 	
-	//method ot setup the dictionaries for the month time interval
+	//method to setup the dictionaries for the month time interval
 	func setupMonthGraphValuesFrom(monthOf: Date){
 		var index = 0
-		var done = false
-		
 		//create a DateFormatter object to convert the date of the month into an int
 		let dayFormat = DateFormatter()
 		dayFormat.dateFormat = "dd"
@@ -125,9 +128,8 @@ class LineGraphViewController: UIViewController {
 			let daysAway = calendar.date(byAdding: .day, value: time, to: monthOf)
 			expensesByDate.updateValue(0.00, forKey: formatter.string(from: daysAway!))
 		}
-		
 		//loop through expenses and update dictionary values
-		while index < allExpenses.count && done == false {
+		while index < allExpenses.count {
 			let when = allExpenses[index].date! as Date
 			let monthFormat = DateFormatter()
 			let yearFormat = DateFormatter()
@@ -140,8 +142,6 @@ class LineGraphViewController: UIViewController {
 					expensesByDate.updateValue(curr + allExpenses[index].price, forKey: formatter.string(from: when))
 					expensesByCategory.updateValue(allExpenses[index].price + expensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-			} else { //if we reach amonth and year that dont' match then we know the rest of the dates don't either
-				done = true
 			}
 			index += 1
 		}
@@ -150,14 +150,13 @@ class LineGraphViewController: UIViewController {
 	//setup dictionaries for the year time interval
 	func setupYearGraphValuesFrom(yearOf: Date) {
 		var index = 0
-		var done = false
 		//array of months to add as keys to dictionary
-		let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+		let months = ["01Jan","02Feb","03Mar","04Apr","05May","06Jun","07Jul","08Aug","09Sep","10Oct","11Nov","12Dec"]
 		for month in 0..<months.count{
 			expensesByDate.updateValue(0.00, forKey: months[month])
 		}
 		//loop through all of the expenses
-		while index < allExpenses.count && done == false {
+		while index < allExpenses.count {
 			let when = allExpenses[index].date! as Date
 			
 			//date format object to make sure we are from the same year
@@ -170,15 +169,15 @@ class LineGraphViewController: UIViewController {
 			
 			if(format.string(from: when) == format.string(from: yearOf)) {
 				//if key exists, then update the total spent in that month and total spent in that category
-				if let curr = expensesByDate[months[Int(otherFormat.string(from: when))!]]{
-					expensesByDate.updateValue(curr + allExpenses[index].price, forKey: months[Int(otherFormat.string(from: when))!])
+				if let curr = expensesByDate[months[Int(otherFormat.string(from: when))! - 1]]{
+					let month = months[Int(otherFormat.string(from: when))! - 1]
+					expensesByDate.updateValue(curr + allExpenses[index].price, forKey: month)
 					expensesByCategory.updateValue(allExpenses[index].price + expensesByCategory[allExpenses[index].type!]!, forKey: allExpenses[index].type!)
 				}
-			} else { //if we hit any other year, then we know all other elements in array are not from current year
-				done = true
 			}
 			index += 1
 		}
+		print(expensesByDate)
 	}
 	
 	//if button is pressed, the view will segue to the pie chart which shows expenses by category
@@ -193,6 +192,21 @@ class LineGraphViewController: UIViewController {
 		if(segue.identifier == "categorySegue"){
 			let dest = segue.destination as! PieGraphViewController
             dest.expensesByCategory = sender as! [String : Double]
+		}
+		//Update the week of the data to be presented
+		if(segue.identifier == "weekEditor"){
+			let dest = segue.destination as! UpdateWeekRange
+			dest.allExpenses = allExpenses
+		}
+		//Update the month of the data to be presented
+		if(segue.identifier == "monthEditor"){
+			let dest = segue.destination as! UpdateMonthRange
+			dest.allExpenses = allExpenses
+		}
+		//Update the year of the data to be presented
+		if(segue.identifier == "yearEditor"){
+			let dest = segue.destination as! UpdateYearRange
+			dest.allExpenses = allExpenses
 		}
 	}
 
