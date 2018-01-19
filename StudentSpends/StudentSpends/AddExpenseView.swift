@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 //import TesseractOCR
-//import SwiftOCR
 
 class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 	
@@ -125,9 +124,6 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			tesseract.image = pickedImage
 			tesseract.recognize()
 			print(tesseract.recognizedText)
-			let datOCR = SwiftOCR()
-			datOCR.recognize(pickedImage, { (recognizedString) in
-				print(recognizedString)}
 			)*/
 			
 		}
