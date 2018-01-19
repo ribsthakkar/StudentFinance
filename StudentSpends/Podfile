@@ -7,4 +7,5 @@ target 'StudentSpends' do
 
   # Pods for StudentSpends
 pod 'Charts'
+pod 'TesseractOCRiOS', '4.0.0'
 end

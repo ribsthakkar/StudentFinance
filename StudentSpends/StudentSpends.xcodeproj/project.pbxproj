@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1169631FFED39900BBF810 /* LineGraphViewController.swift */; };
 		3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */; };
+		3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */; };
+		3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972F02011100500DA12B5 /* UpdateYearRange.swift */; };
+		3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B80200E591400CF2C5A /* Charts.framework */; };
+		3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B82200E591800CF2C5A /* TesseractOCR.framework */; };
+		3C464B84200E5AC500CF2C5A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3C464B83200E5AC500CF2C5A /* tessdata */; };
+		3C464BC5200E62C000CF2C5A /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464BBF200E60E500CF2C5A /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3C464BC9200E62C000CF2C5A /* SwiftOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B8F200E5FC900CF2C5A /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3C464BCE200E7AFB00CF2C5A /* UpdateWeekRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */; };
 		3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */; };
 		3C4BAC551FF94DE9002F4985 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */; };
 		3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */; };
@@ -23,13 +31,95 @@
 		3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836C1FF6ED9E006D0D30 /* Main.storyboard */; };
 		3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */; };
 		3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */; };
-		986D6E8366BB02D4AFA8894C /* Pods_StudentSpends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C464B8E200E5FC900CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0AF1CC9071C00C4758B;
+			remoteInfo = SwiftOCR;
+		};
+		3C464B90200E5FC900CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0B91CC9071D00C4758B;
+			remoteInfo = SwiftOCRTests;
+		};
+		3C464B92200E5FC900CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0E61CC909A500C4758B;
+			remoteInfo = "SwiftOCR Mac";
+		};
+		3C464B94200E5FC900CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 373ED0EF1CC909A500C4758B;
+			remoteInfo = "SwiftOCR MacTests";
+		};
+		3C464BBC200E60E500CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		3C464BBE200E60E500CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		3C464BC6200E62C000CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		3C464BCA200E62C000CF2C5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 373ED0AE1CC9071C00C4758B;
+			remoteInfo = SwiftOCR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3C464BCC200E62C000CF2C5A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C464BC5200E62C000CF2C5A /* GPUImage.framework in Embed Frameworks */,
+				3C464BC9200E62C000CF2C5A /* SwiftOCR.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudentSpends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C1169631FFED39900BBF810 /* LineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphViewController.swift; sourceTree = "<group>"; };
 		3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
+		3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMonthRange.swift; sourceTree = "<group>"; };
+		3C2972F02011100500DA12B5 /* UpdateYearRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateYearRange.swift; sourceTree = "<group>"; };
+		3C464B80200E591400CF2C5A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C464B82200E591800CF2C5A /* TesseractOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C464B83200E5AC500CF2C5A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftOCR.xcodeproj; path = "../../../../Downloads/SwiftOCR-master/framework/SwiftOCR.xcodeproj"; sourceTree = "<group>"; };
+		3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../../Downloads/SwiftOCR-master 2/framework/SwiftOCR/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		3C464BC2200E627900CF2C5A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeekRange.swift; sourceTree = "<group>"; };
 		3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewTable.swift; sourceTree = "<group>"; };
@@ -55,7 +145,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				986D6E8366BB02D4AFA8894C /* Pods_StudentSpends.framework in Frameworks */,
+				3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */,
+				3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +162,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3C464B86200E5FC800CF2C5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C464B8F200E5FC900CF2C5A /* SwiftOCR.framework */,
+				3C464B91200E5FC900CF2C5A /* SwiftOCRTests.xctest */,
+				3C464B93200E5FC900CF2C5A /* SwiftOCR.framework */,
+				3C464B95200E5FC900CF2C5A /* SwiftOCR MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C464BB7200E60E500CF2C5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C464BBD200E60E500CF2C5A /* libGPUImage.a */,
+				3C464BBF200E60E500CF2C5A /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3CED835C1FF6ED9E006D0D30 = {
 			isa = PBXGroup;
 			children = (
+				3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */,
+				3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */,
 				3CED83671FF6ED9E006D0D30 /* StudentSpends */,
 				3CED83661FF6ED9E006D0D30 /* Products */,
 				0D16AFC4974A7B07EBF78D4D /* Pods */,
@@ -98,16 +211,20 @@
 				3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */,
 				3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */,
 				3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */,
-				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
 				3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */,
 				3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */,
 				3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */,
 				3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */,
 				3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
-				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
+				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
+				3C2972F02011100500DA12B5 /* UpdateYearRange.swift */,
+				3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */,
+				3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */,
 				3C1169631FFED39900BBF810 /* LineGraphViewController.swift */,
+				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
 				3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */,
+				3C464B83200E5AC500CF2C5A /* tessdata */,
 				3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */,
 				3CED83741FF6ED9E006D0D30 /* Info.plist */,
 			);
@@ -117,6 +234,9 @@
 		7862A1F7275453D63FEE2D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C464BC2200E627900CF2C5A /* AddressBookUI.framework */,
+				3C464B82200E591800CF2C5A /* TesseractOCR.framework */,
+				3C464B80200E591400CF2C5A /* Charts.framework */,
 				3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */,
 			);
 			name = Frameworks;
@@ -135,10 +255,13 @@
 				3CED83631FF6ED9E006D0D30 /* Resources */,
 				4CAF0D5F8BDCB8CF36CF3C6B /* [CP] Embed Pods Frameworks */,
 				3746FD7CB05C5FCFD79FDD79 /* [CP] Copy Pods Resources */,
+				3C464BCC200E62C000CF2C5A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3C464BC7200E62C000CF2C5A /* PBXTargetDependency */,
+				3C464BCB200E62C000CF2C5A /* PBXTargetDependency */,
 			);
 			name = StudentSpends;
 			productName = StudentSpends;
@@ -172,12 +295,67 @@
 			mainGroup = 3CED835C1FF6ED9E006D0D30;
 			productRefGroup = 3CED83661FF6ED9E006D0D30 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3C464BB7200E60E500CF2C5A /* Products */;
+					ProjectRef = 3C464BB6200E60E500CF2C5A /* GPUImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 3C464B86200E5FC800CF2C5A /* Products */;
+					ProjectRef = 3C464B85200E5FC800CF2C5A /* SwiftOCR.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3CED83641FF6ED9E006D0D30 /* StudentSpends */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3C464B8F200E5FC900CF2C5A /* SwiftOCR.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftOCR.framework;
+			remoteRef = 3C464B8E200E5FC900CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C464B91200E5FC900CF2C5A /* SwiftOCRTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftOCRTests.xctest;
+			remoteRef = 3C464B90200E5FC900CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C464B93200E5FC900CF2C5A /* SwiftOCR.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftOCR.framework;
+			remoteRef = 3C464B92200E5FC900CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C464B95200E5FC900CF2C5A /* SwiftOCR MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftOCR MacTests.xctest";
+			remoteRef = 3C464B94200E5FC900CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C464BBD200E60E500CF2C5A /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 3C464BBC200E60E500CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C464BBF200E60E500CF2C5A /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 3C464BBE200E60E500CF2C5A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3CED83631FF6ED9E006D0D30 /* Resources */ = {
@@ -186,6 +364,7 @@
 			files = (
 				3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */,
 				3C4BAC591FF9549D002F4985 /* ExpenseTableCell.xib in Resources */,
+				3C464B84200E5AC500CF2C5A /* tessdata in Resources */,
 				3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */,
 				3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */,
 			);
@@ -217,10 +396,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -253,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */,
+				3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */,
 				3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */,
 				3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */,
 				3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */,
@@ -261,13 +443,28 @@
 				3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */,
 				3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */,
 				3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */,
+				3C464BCE200E7AFB00CF2C5A /* UpdateWeekRange.swift in Sources */,
 				3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */,
 				3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */,
 				3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */,
+				3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C464BC7200E62C000CF2C5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 3C464BC6200E62C000CF2C5A /* PBXContainerItemProxy */;
+		};
+		3C464BCB200E62C000CF2C5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftOCR;
+			targetProxy = 3C464BCA200E62C000CF2C5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3CED836C1FF6ED9E006D0D30 /* Main.storyboard */ = {
@@ -321,6 +518,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -378,6 +576,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -400,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF426CF539F39454864D555B /* Pods-StudentSpends.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7SNVDQQ46;
@@ -417,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF889C8801B15791789F5E4B /* Pods-StudentSpends.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7SNVDQQ46;

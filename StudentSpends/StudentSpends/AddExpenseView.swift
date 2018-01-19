@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+//import TesseractOCR
+//import SwiftOCR
 
 class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 	
@@ -118,6 +120,16 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let pickedImage: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
 			expense.image = pickedImage
+			/*let tesseract = G8Tesseract(language: "eng")!
+			tesseract.delegate = self
+			tesseract.image = pickedImage
+			tesseract.recognize()
+			print(tesseract.recognizedText)
+			let datOCR = SwiftOCR()
+			datOCR.recognize(pickedImage, { (recognizedString) in
+				print(recognizedString)}
+			)*/
+			
 		}
 		picker.dismiss(animated: true, completion: nil)
 	}
