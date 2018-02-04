@@ -18,7 +18,7 @@ class LineGraphViewController: UIViewController {
 	let formatter = DateFormatter()
 	var week = false
 	var month = false
-	var year = true
+	var year = false
 	var date = Date()
 	@IBOutlet weak var lineChart: LineChartView!
     @IBAction func editDateRanges(_ sender: Any) {
@@ -42,14 +42,11 @@ class LineGraphViewController: UIViewController {
 			setupWeeklyGraphValuesFrom(weekOf: date)
 		} else if(month){
 			setupMonthGraphValuesFrom(monthOf: date)
-		} else{
+		} else if(year){
 			setupYearGraphValuesFrom(yearOf: date)
 		}
 		updateLineGraph()
     }
-	override func viewDidAppear(_ animated: Bool) {
-		updateLineGraph()
-	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -177,7 +174,6 @@ class LineGraphViewController: UIViewController {
 			}
 			index += 1
 		}
-		print(expensesByDate)
 	}
 	
 	//if button is pressed, the view will segue to the pie chart which shows expenses by category

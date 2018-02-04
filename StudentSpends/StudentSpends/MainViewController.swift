@@ -86,15 +86,12 @@ class MainViewController: UIViewController {
 			let dest = segue.destination as! LineGraphViewController
 			dest.allExpenses = allExpenses
 			if(week){
-				dest.setupWeeklyGraphValuesFrom(weekOf: Date())
 				dest.week = true
 			}
 			else if(month){
-				dest.setupMonthGraphValuesFrom(monthOf: Date())
 				dest.month = true
 			}
-			else{
-				dest.setupYearGraphValuesFrom(yearOf: Date())
+			else if(year){
 				dest.year = true
 			}
 		}
