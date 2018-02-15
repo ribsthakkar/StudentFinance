@@ -13,7 +13,8 @@ protocol ExpenseTableViewCellDelegate: class {
 class ExpenseTableCell: UITableViewCell {
 	
 	//Define all of the connections to nib and setup class variables
-	@IBOutlet weak var priceOfExpense: UILabel!
+	
+	@IBOutlet weak var dateOfExpense: UILabel!
 	@IBOutlet weak var nameOfExpense: UILabel!
     @IBOutlet weak var moreInfo: UIButton!
 	weak var delegate: ExpenseTableViewCellDelegate!
@@ -38,7 +39,7 @@ class ExpenseTableCell: UITableViewCell {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		
-		priceOfExpense.text = ""
+		dateOfExpense.text = ""
 		nameOfExpense.text = ""
 		delegate = nil
 	}

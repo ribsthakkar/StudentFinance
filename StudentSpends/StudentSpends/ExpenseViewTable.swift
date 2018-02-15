@@ -15,6 +15,7 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
 	@IBOutlet weak var expenseTable: UITableView!
 	private let cellId = "expenseCell"
 	var allExpenses = [Expense]()
+	var changed:Bool = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,15 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
 		
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
-		
-		//create fetch request object
-		let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-		do{
-			//fetch the array of expenses
-			let expenses = try PersistanceService.context.fetch(fetchRequest)
-			self.allExpenses = expenses
-		} catch{}
+		if changed {
+			//create fetch request object
+			let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+			do{
+				//fetch the array of expenses
+				let expenses = try PersistanceService.context.fetch(fetchRequest)
+				self.allExpenses = expenses
+			} catch{}
+		}
 		expenseTable.allowsSelection = false;
 		expenseTable.reloadData()
     }
@@ -73,7 +75,9 @@ extension ExpenseViewTable: UITableViewDataSource {
 		
 		//set the labels on the cell and cellDelegate
 		cell.nameOfExpense.text = expense.name
-		cell.priceOfExpense.text = String(format: "$%.02f", expense.price)
+		let dFormatter = DateFormatter()
+		dFormatter.dateFormat = "dd/MM/yyyy"
+		cell.dateOfExpense.text = dFormatter.string(from: expense.date! as Date)
 		cell.delegate = self
 		return cell
 	}
