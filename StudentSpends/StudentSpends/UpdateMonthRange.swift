@@ -49,17 +49,21 @@ class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewData
         // Dispose of any resources that can be recreated.
     }
 	@IBAction func done() {
-		let month = monthYearOptions.selectedRow(inComponent: 0)  + 1
-		let year = pickerDataSource[1][monthYearOptions.selectedRow(inComponent: 1)]
-		let when = "01/" + String(month) + "/" + String(year)
-		let dFormatter = DateFormatter()
-		dFormatter.dateFormat = "dd/MM/yyyy"
-		if let updatedDate = dFormatter.date(from: when) {
-			var timeInterval = DateComponents()
-			timeInterval.day = -1
-			timeInterval.month = 1
-			let date = Calendar.current.date(byAdding: timeInterval, to: updatedDate)!
-			delegate?.update(with: date, range: LineGraphViewController.DateRange.Monthly)
+		if(pickerDataSource[1].count == 0) {
+			delegate?.update(with: Date(), range: LineGraphViewController.DateRange.Monthly)
+		} else {
+			let month = monthYearOptions.selectedRow(inComponent: 0)  + 1
+			let year = pickerDataSource[1][monthYearOptions.selectedRow(inComponent: 1)]
+			let when = "01/" + String(month) + "/" + String(year)
+			let dFormatter = DateFormatter()
+			dFormatter.dateFormat = "dd/MM/yyyy"
+			if let updatedDate = dFormatter.date(from: when) {
+				var timeInterval = DateComponents()
+				timeInterval.day = -1
+				timeInterval.month = 1
+				let date = Calendar.current.date(byAdding: timeInterval, to: updatedDate)!
+				delegate?.update(with: date, range: LineGraphViewController.DateRange.Monthly)
+			}
 		}
 		dismiss(animated: true, completion: nil)
 	}

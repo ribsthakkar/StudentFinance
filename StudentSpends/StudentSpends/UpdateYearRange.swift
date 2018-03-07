@@ -53,38 +53,18 @@ class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         // Dispose of any resources that can be recreated.
     }
     
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-		
-		if segue.identifier == "returnWithUpdatedYear" {
-			let dest = segue.destination as! LineGraphViewController
-			//setup neccessary data
-			dest.allExpenses = allExpenses
-			dest.currentRange = LineGraphViewController.DateRange.Yearly
-			//send the first of the specified year to LineGraphViewController
+	@IBAction func done() {
+		//send the first of the specified year to LineGraphViewController
+		if(pickerDataSource.count == 0) {
+			delegate?.update(with: Date(), range: LineGraphViewController.DateRange.Yearly)
+		} else {
 			let year = pickerDataSource[yearOptions.selectedRow(inComponent: 0)]
 			let when = "01/" + "01/" + String(year)
 			let dFormatter = DateFormatter()
 			dFormatter.dateFormat = "dd/MM/yyyy"
 			if let setDate = dFormatter.date(from: when){
-				dest.date = setDate
+				delegate?.update(with: setDate, range: LineGraphViewController.DateRange.Yearly)
 			}
-		}
-    }
-	@IBAction func done() {
-		//send the first of the specified year to LineGraphViewController
-		let year = pickerDataSource[yearOptions.selectedRow(inComponent: 0)]
-		let when = "01/" + "01/" + String(year)
-		let dFormatter = DateFormatter()
-		dFormatter.dateFormat = "dd/MM/yyyy"
-		if let setDate = dFormatter.date(from: when){
-			delegate?.update(with: setDate, range: LineGraphViewController.DateRange.Yearly)
 		}
 		dismiss(animated: true, completion: nil)
 	}
