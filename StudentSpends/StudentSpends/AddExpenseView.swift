@@ -11,6 +11,7 @@ import CoreData
 //import TesseractOCR
 protocol UpdateExpenseTableDelegate: class {
 	func update(with expense: Expense)
+	func remove(with expnese: Expense)
 }
 
 class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {

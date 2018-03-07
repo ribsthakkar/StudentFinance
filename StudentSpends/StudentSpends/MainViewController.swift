@@ -97,6 +97,7 @@ class MainViewController: UIViewController, DidDataUpdateDelegate {
 		} else if(segue.identifier == "viewTableSegue") {
 			let dest = segue.destination as! ExpenseViewTable
 			dest.allExpenses = allExpenses
+			dest.delegate = self
 		}
 	}
 }

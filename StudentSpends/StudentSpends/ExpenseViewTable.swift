@@ -18,7 +18,11 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateEx
 		expenseTable.reloadData()
 		changed = true
 	}
-	
+	func remove(with expense: Expense) {
+		allExpenses.remove(at: allExpenses.index(of: expense)!)
+		expenseTable.reloadData()
+		changed = true
+	}
 	//instantiate class variables (table for expenses) and array of expenses
 	@IBOutlet weak var expenseTable: UITableView!
 	private let cellId = "expenseCell"
@@ -45,6 +49,7 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateEx
 			let dest = segue.destination as! ExpenseDetails
 			let expense = sender as! Expense
 			dest.expenseObject = expense
+			dest.delegate = self
 		}
 		if segue.identifier == "addExpenseSegue" {
 			let dest = segue.destination as! AddExpenseView
@@ -59,6 +64,7 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateEx
 	}
 	@IBAction func done() {
 		delegate?.updated(yes: changed)
+		changed = false
 		self.dismiss(animated: true, completion: nil)
 	}
 }

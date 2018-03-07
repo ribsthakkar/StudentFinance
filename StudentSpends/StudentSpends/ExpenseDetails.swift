@@ -18,7 +18,8 @@ class ExpenseDetails: UIViewController {
 	@IBOutlet weak var expenseType: UILabel!
 	@IBOutlet weak var expenseDate: UILabel!
 	var expenseObject = Expense()
-	
+	weak var delegate: UpdateExpenseTableDelegate?
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +56,19 @@ class ExpenseDetails: UIViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	@IBAction func deleteExpense() {
+		delegate?.remove(with: expenseObject)
+		if let imageIDOfExpense = expenseObject.image{
+			expensePhoto.backgroundColor = UIColor.clear
+			let fetchRequest: NSFetchRequest<ExpenseImage> = ExpenseImage.fetchRequest()
+			fetchRequest.predicate = NSPredicate(format: "imageID == %@", imageIDOfExpense as CVarArg)
+			do {
+				PersistanceService.context.delete(try PersistanceService.context.fetch(fetchRequest)[0])
+			} catch {
+				print("No expense photo to delete")
+			}
+		} else{
+			expensePhoto.backgroundColor = UIColor.blue
+		}
 		PersistanceService.context.delete(expenseObject)
 		PersistanceService.saveContext()
 		self.dismiss(animated: true, completion: nil)
