@@ -8,30 +8,30 @@
 
 import UIKit
 import CoreData
-
-class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
+protocol DidDataUpdateDelegate: class {
+	func updated(yes: Bool)
+}
+class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateExpenseTableDelegate {
+	
+	func update(with expense: Expense) {
+		allExpenses.append(expense)
+		expenseTable.reloadData()
+		changed = true
+	}
 	
 	//instantiate class variables (table for expenses) and array of expenses
 	@IBOutlet weak var expenseTable: UITableView!
 	private let cellId = "expenseCell"
 	var allExpenses = [Expense]()
 	var changed:Bool = false
-	
+	weak var delegate: DidDataUpdateDelegate?
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
-		if changed {
-			//create fetch request object
-			let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-			do{
-				//fetch the array of expenses
-				let expenses = try PersistanceService.context.fetch(fetchRequest)
-				self.allExpenses = expenses
-			} catch{}
-		}
 		expenseTable.allowsSelection = false;
 		expenseTable.reloadData()
     }
@@ -41,11 +41,14 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
 		// Get the new view controller using segue.destinationViewController.
 		// Pass the selected object to the new view controller.
 		if segue.identifier == "detailExpenseSegue" {
-			
 			//pass the expense object to the destination segue
 			let dest = segue.destination as! ExpenseDetails
 			let expense = sender as! Expense
 			dest.expenseObject = expense
+		}
+		if segue.identifier == "addExpenseSegue" {
+			let dest = segue.destination as! AddExpenseView
+			dest.delegate = self
 		}
 	}
 	//function called to perfom segue with a specific cell is tapped
@@ -53,6 +56,10 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate {
 		if let indexPath = expenseTable.indexPath(for: sender) {
 			performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[indexPath.row])
 		}
+	}
+	@IBAction func done() {
+		delegate?.updated(yes: changed)
+		self.dismiss(animated: true, completion: nil)
 	}
 }
 

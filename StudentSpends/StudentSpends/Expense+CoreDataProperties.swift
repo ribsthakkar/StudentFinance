@@ -21,6 +21,7 @@ extension Expense {
     @NSManaged public var price: Double
     @NSManaged public var type: String?
     @NSManaged public var date: NSDate?
-    @NSManaged public var image: NSObject?
+    @NSManaged public var image: UUID?
 
 }
+

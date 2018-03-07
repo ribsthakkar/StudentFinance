@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 //import TesseractOCR
+protocol UpdateExpenseTableDelegate: class {
+	func update(with expense: Expense)
+}
 
 class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 	
@@ -19,8 +22,8 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	@IBOutlet var expenseType: UIPickerView!
 	@IBOutlet weak var submitButton: UIButton!
 	var expense = Expense(context:PersistanceService.context)
-	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies","Other"];
-	
+	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"];
+	weak var delegate: UpdateExpenseTableDelegate?
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +53,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 		let name = expenseName.text!
 		//if empty name is submit then automatically cancel or else upate expense object name
 		if(name.count <= 0){
-			performSegue(withIdentifier: "cancelSegue", sender: nil)
+			cancel()
 			return
 		} else{
 			expense.name = name
@@ -61,7 +64,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 			expense.price = price
 		} else {
 			print("Not a valid number: \(expensePrice.text!)")
-			performSegue(withIdentifier: "cancelSegue", sender: nil)
+			cancel()
 			return
 		}
 		
@@ -75,7 +78,8 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 		
 		//save to CoreData and perform segue to return to tableView of expenses
 		PersistanceService.saveContext()
-		performSegue(withIdentifier: "submitSegue", sender: expense)
+		delegate?.update(with: expense)
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	//Methods to setup the PICKERVIEW for the expenseType picker
@@ -118,31 +122,16 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	//method to update the Expense instance
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let pickedImage: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-			expense.image = pickedImage
-			/*let tesseract = G8Tesseract(language: "eng")!
-			tesseract.delegate = self
-			tesseract.image = pickedImage
-			tesseract.recognize()
-			print(tesseract.recognizedText)
-			)*/
-			
+			expense.image = UUID()
+			let expenseImage = ExpenseImage(context:PersistanceService.context)
+			expenseImage.imageID = expense.image
+			expenseImage.image = pickedImage			
 		}
 		picker.dismiss(animated: true, completion: nil)
 	}
-	
-	// MARK: - Navigation
-
-	//Method to prepare for segue
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       	//If the segue is to submit the data, then we update the list of all expenses for the table
-		if segue.identifier == "submitSegue" {
-			let ExchangeViewData = segue.destination as! ExpenseViewTable
-			ExchangeViewData.allExpenses.append(sender as! Expense)
-		}
-		//if expense is canceled, then delete it from CoreData
-		if(segue.identifier == "cancelSegue"){
-			PersistanceService.context.delete(expense)
-		}
-    }
+	@IBAction func cancel() {
+		PersistanceService.context.delete(expense)
+		self.dismiss(animated: true, completion: nil)
+	}
     
 }

@@ -9,37 +9,31 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController {
-
+class MainViewController: UIViewController, DidDataUpdateDelegate {
+	
+	func updated(yes: Bool){
+		changed = yes
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 		allExpenses = [Expense]()
+    }
+	override func viewDidAppear(_ animated: Bool) {
 		week = false
 		month = false
 		year = false
-		//creating neccessary arrays in order to store the data for specified time intervals
-		weekExpensesByDate = Dictionary<String, Double>()
-		monthExpensesByDate = Dictionary<String, Double>()
-		yearExpensesByDate = Dictionary<String, Double>()
-		weekExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
-		monthExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
-		yearExpensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
-		
-		//read all of the data from CoreData platform
-		getData()
-    }
+		if changed {
+			getData()
+			changed = false
+		}
+	}
 	//instantiate class variables
 	var week: Bool = false
 	var month: Bool = false
 	var year: Bool = false
+	var changed: Bool = true
 	var allExpenses = [Expense]()
-	var weekExpensesByDate = Dictionary<String, Double>()
-	var monthExpensesByDate = Dictionary<String, Double>()
-	var yearExpensesByDate = Dictionary<String, Double>()
-	var weekExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
-	var monthExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
-	var yearExpensesByCategory = ["Food": 0.00, "Travel": 0.00, "Leisure": 0.00, "Supplies": 0.00, "Other": 0.00]
 	
 	// Method to access all of the Expense data
 	func getData() {
@@ -54,6 +48,10 @@ class MainViewController: UIViewController {
 		} catch {
 			print("Cannot fetch Expenses")
 		}
+	}
+	
+	@IBAction func viewExpenseTable(_ sender: Any) {
+		performSegue(withIdentifier: "viewTableSegue", sender: nil)
 	}
 	
 	//method to perform segue and send the dictionaries for week
@@ -86,14 +84,19 @@ class MainViewController: UIViewController {
 			let dest = segue.destination as! LineGraphViewController
 			dest.allExpenses = allExpenses
 			if(week){
-				dest.week = true
+				dest.currentRange = LineGraphViewController.DateRange.Weekly
 			}
 			else if(month){
-				dest.month = true
+				print("setMonthly")
+				dest.currentRange = LineGraphViewController.DateRange.Monthly
 			}
 			else if(year){
-				dest.year = true
+				print("setYearly")
+				dest.currentRange = LineGraphViewController.DateRange.Yearly
 			}
+		} else if(segue.identifier == "viewTableSegue") {
+			let dest = segue.destination as! ExpenseViewTable
+			dest.allExpenses = allExpenses
 		}
 	}
 }

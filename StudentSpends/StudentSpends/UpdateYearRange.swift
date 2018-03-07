@@ -9,6 +9,7 @@
 import UIKit
 
 class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+	weak var delegate: UpdateRangeDelegate?
 	var pickerDataSource:[String] = []
 	// The number of rows of data
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -65,7 +66,7 @@ class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 			let dest = segue.destination as! LineGraphViewController
 			//setup neccessary data
 			dest.allExpenses = allExpenses
-			dest.year = true
+			dest.currentRange = LineGraphViewController.DateRange.Yearly
 			//send the first of the specified year to LineGraphViewController
 			let year = pickerDataSource[yearOptions.selectedRow(inComponent: 0)]
 			let when = "01/" + "01/" + String(year)
@@ -76,6 +77,16 @@ class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 			}
 		}
     }
-
+	@IBAction func done() {
+		//send the first of the specified year to LineGraphViewController
+		let year = pickerDataSource[yearOptions.selectedRow(inComponent: 0)]
+		let when = "01/" + "01/" + String(year)
+		let dFormatter = DateFormatter()
+		dFormatter.dateFormat = "dd/MM/yyyy"
+		if let setDate = dFormatter.date(from: when){
+			delegate?.update(with: setDate, range: LineGraphViewController.DateRange.Yearly)
+		}
+		dismiss(animated: true, completion: nil)
+	}
 
 }

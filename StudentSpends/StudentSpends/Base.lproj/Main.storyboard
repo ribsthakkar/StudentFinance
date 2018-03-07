@@ -21,7 +21,7 @@
                                 <rect key="frame" x="136" y="213" width="103" height="30"/>
                                 <state key="normal" title="View Expenses"/>
                                 <connections>
-                                    <segue destination="EVz-5L-xng" kind="presentation" id="dlf-tO-UGS"/>
+                                    <segue destination="EVz-5L-xng" kind="presentation" identifier="viewTableSegue" id="dlf-tO-UGS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-AZ-cod">
@@ -96,12 +96,12 @@
                                     <navigationItem title="Expenses" id="k4e-eL-YIy">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="IKm-sv-dOA">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="B2s-gn-Cgw"/>
+                                                <action selector="done" destination="EVz-5L-xng" id="QQT-Ig-qm6"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nIe-zF-1KZ">
                                             <connections>
-                                                <segue destination="VRY-Aj-ms5" kind="presentation" id="XJZ-vQ-0tQ"/>
+                                                <segue destination="VRY-Aj-ms5" kind="presentation" identifier="addExpenseSegue" id="NJP-Ko-DOw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -143,7 +143,7 @@
                                     <navigationItem title="Expenses Charts" id="Rc9-YL-ZEn">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="5cG-r2-Gub">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="oPo-UL-erX"/>
+                                                <action selector="done" destination="fpm-j1-vuX" id="JbA-Lf-iTE"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="NG7-Bx-1lk">
@@ -212,7 +212,7 @@
                                     <navigationItem title="Chart Data" id="0xn-IN-Pm2">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="aEz-8d-t55">
                                             <connections>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedWeek" id="c4u-Hq-KOB"/>
+                                                <action selector="done" destination="snk-fZ-rWH" id="262-c4-DY1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -261,7 +261,7 @@
                                     <navigationItem title="Expenses Charts" id="kGq-FV-hTy">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="cMG-xQ-p1N">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="EcY-EH-gam"/>
+                                                <action selector="done" destination="8ph-kp-pYK" id="CVx-v0-udg"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -272,9 +272,6 @@
                                 <state key="disabled">
                                     <color key="titleColor" red="0.99125522375106812" green="0.99628156423568726" blue="0.99603790044784546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="fpm-j1-vuX" kind="presentation" id="YEo-R3-UGW"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znQ-4e-qVg" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="64" width="375" height="509"/>
@@ -343,7 +340,7 @@
                                 <rect key="frame" x="94" y="606" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="EVz-5L-xng" kind="presentation" id="G69-CB-wJR"/>
+                                    <action selector="done" destination="6nx-k1-ReR" eventType="touchUpInside" id="ph3-r9-9nd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrh-c1-c4v">
@@ -352,7 +349,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EVz-5L-xng" kind="presentation" identifier="deleteSegue" id="Nh0-i7-ysP"/>
+                                    <action selector="deleteExpense" destination="6nx-k1-ReR" eventType="touchUpInside" id="Vpv-IY-HXo"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-Wx-i1R">
@@ -493,14 +490,13 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="buttonSave" destination="VRY-Aj-ms5" eventType="touchUpInside" id="8dg-NQ-Ggj"/>
-                                    <segue destination="EVz-5L-xng" kind="presentation" identifier="emptySubmit" id="hKc-6P-Zg4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y92-8D-5cR">
                                 <rect key="frame" x="37" y="617" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="EVz-5L-xng" kind="presentation" identifier="cancelSegue" id="Dg8-Yu-4JN"/>
+                                    <action selector="cancel" destination="VRY-Aj-ms5" eventType="touchUpOutside" id="kTJ-PC-qaN"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThR-Au-cnE">
@@ -554,7 +550,6 @@
                         <outlet property="expensePrice" destination="oLn-yw-mep" id="FIM-hC-dyx"/>
                         <outlet property="expenseType" destination="wrN-Kh-K7f" id="43y-r8-hHA"/>
                         <outlet property="submitButton" destination="bra-Gl-piO" id="Iwa-t7-ErF"/>
-                        <segue destination="EVz-5L-xng" kind="presentation" identifier="submitSegue" id="Yar-yI-vwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5f-Nx-48K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,8 +576,7 @@
                                     <navigationItem title="Chart Data" id="3Ib-6w-b1e">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="CMz-4o-dnV">
                                             <connections>
-                                                <action selector="updateGraphDateRange:" destination="gag-sv-P3s" id="YJw-FI-Hia"/>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedMonth" id="anV-wM-sLP"/>
+                                                <action selector="done" destination="gag-sv-P3s" id="eEN-hV-gUR"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -634,7 +628,7 @@
                                     <navigationItem title="Chart Data" id="uap-Qp-aU7">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="dxn-sO-Mxf">
                                             <connections>
-                                                <segue destination="fpm-j1-vuX" kind="presentation" identifier="returnWithUpdatedYear" id="HK7-q9-9SQ"/>
+                                                <action selector="done" destination="pU5-n0-zfz" id="BzM-ht-i7U"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -667,9 +661,4 @@
             <point key="canvasLocation" x="292" y="1532"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5NE-ID-rkn"/>
-        <segue reference="dlf-tO-UGS"/>
-        <segue reference="oPo-UL-erX"/>
-    </inferredMetricsTieBreakers>
 </document>

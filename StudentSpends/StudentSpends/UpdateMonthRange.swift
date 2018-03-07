@@ -9,9 +9,8 @@
 import UIKit
 
 class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-	
 	var pickerDataSource:[[String]] = [["January","February","March","April","May","June","July","August","Septemeber","October","November","December"],[]]
-	
+	weak var delegate: UpdateRangeDelegate?
 	// The number of rows of data
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerDataSource[component].count
@@ -49,36 +48,19 @@ class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-	
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-		if(segue.identifier == "returnWithUpdatedMonth"){
-			let dest = segue.destination as! LineGraphViewController
-			//setup neccessary data
-			dest.month = true
-			dest.allExpenses = allExpenses
-			//set the date to the last day of specified month in LineGraphViewController
-			let month = monthYearOptions.selectedRow(inComponent: 0)  + 1
-			let year = pickerDataSource[1][monthYearOptions.selectedRow(inComponent: 1)]
-			let when = "01/" + String(month) + "/" + String(year)
-			let dFormatter = DateFormatter()
-			dFormatter.dateFormat = "dd/MM/yyyy"
-			if let updatedDate = dFormatter.date(from: when) {
-				var timeInterval = DateComponents()
-				timeInterval.day = -1
-				timeInterval.month = 1
-				dest.month = true
-				dest.date = Calendar.current.date(byAdding: timeInterval, to: updatedDate)!
-			}
+	@IBAction func done() {
+		let month = monthYearOptions.selectedRow(inComponent: 0)  + 1
+		let year = pickerDataSource[1][monthYearOptions.selectedRow(inComponent: 1)]
+		let when = "01/" + String(month) + "/" + String(year)
+		let dFormatter = DateFormatter()
+		dFormatter.dateFormat = "dd/MM/yyyy"
+		if let updatedDate = dFormatter.date(from: when) {
+			var timeInterval = DateComponents()
+			timeInterval.day = -1
+			timeInterval.month = 1
+			let date = Calendar.current.date(byAdding: timeInterval, to: updatedDate)!
+			delegate?.update(with: date, range: LineGraphViewController.DateRange.Monthly)
 		}
-		
-    }
-
-
+		dismiss(animated: true, completion: nil)
+	}
 }

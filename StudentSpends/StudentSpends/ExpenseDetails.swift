@@ -24,9 +24,15 @@ class ExpenseDetails: UIViewController {
 
         // Do any additional setup after loading the view.
 		//show the image associated with expense if it exists, else show a blue box
-		if let imageOfExpense = expenseObject.image{
+		if let imageIDOfExpense = expenseObject.image{
 			expensePhoto.backgroundColor = UIColor.clear
-			expensePhoto.image = imageOfExpense as? UIImage
+			let fetchRequest: NSFetchRequest<ExpenseImage> = ExpenseImage.fetchRequest()
+			fetchRequest.predicate = NSPredicate(format: "imageID == %@", imageIDOfExpense as CVarArg)
+			do {
+				expensePhoto.image = try PersistanceService.context.fetch(fetchRequest)[0].image as? UIImage
+			} catch {
+				print("Cannot fetch Expense Photo")
+			}
 		} else{
 			expensePhoto.backgroundColor = UIColor.blue
 		}
@@ -45,21 +51,14 @@ class ExpenseDetails: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		//clear all of the labels and objects once we segue away from this view
-		expensePhoto.image = nil
-		expenseName.text = ""
-		expenseDate.text = ""
-		expenseCost.text = ""
-		//if delete button is pressed, then delete this expense object
-		if segue.identifier == "deleteSegue" {
-			PersistanceService.context.delete(expenseObject)
-			PersistanceService.saveContext()
-		}
-    }
+	@IBAction func done() {
+		self.dismiss(animated: true, completion: nil)
+	}
+	@IBAction func deleteExpense() {
+		PersistanceService.context.delete(expenseObject)
+		PersistanceService.saveContext()
+		self.dismiss(animated: true, completion: nil)
+	}
 	
 
 }

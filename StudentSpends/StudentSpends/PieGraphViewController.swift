@@ -61,4 +61,7 @@ class PieGraphViewController: UIViewController {
 		pieChart.holeRadiusPercent = 0.2
 		pieChart.transparentCircleColor = UIColor.clear
 	}
+	@IBAction func done() {
+		self.dismiss(animated: true, completion: nil)
+	}
 }

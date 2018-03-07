@@ -9,28 +9,26 @@
 import UIKit
 import Charts
 
-class LineGraphViewController: UIViewController {
+class LineGraphViewController: UIViewController, UpdateRangeDelegate {
 	
 	//Setup storyboard connections and class variables
 	var allExpenses = [Expense]()
 	var expensesByDate = [String: Double]()
 	var expensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
 	let formatter = DateFormatter()
-	var week = false
-	var month = false
-	var year = false
+	var currentRange = DateRange.Weekly
 	var date = Date()
 	@IBOutlet weak var lineChart: LineChartView!
     @IBAction func editDateRanges(_ sender: Any) {
-		
 		//Go to the specific picker of the range of dates initially picked
-        if week {
-            performSegue(withIdentifier: "weekEditor", sender: allExpenses)
-        } else if month {
-            performSegue(withIdentifier: "monthEditor", sender: allExpenses)
-        } else {
-            performSegue(withIdentifier: "yearEditor", sender: allExpenses)
-        }
+		switch currentRange {
+		case .Weekly:
+			performSegue(withIdentifier: "weekEditor", sender: allExpenses)
+		case .Monthly:
+			performSegue(withIdentifier: "monthEditor", sender: allExpenses)
+		case .Yearly:
+			performSegue(withIdentifier: "yearEditor", sender: allExpenses)
+		}
     }
     
 	override func viewDidLoad() {
@@ -38,14 +36,7 @@ class LineGraphViewController: UIViewController {
         // Do any additional setup after loading the view.
 		formatter.dateFormat = "MM/dd"
 		//set date range for the graph
-		if(week){
-			setupWeeklyGraphValuesFrom(weekOf: date)
-		} else if(month){
-			setupMonthGraphValuesFrom(monthOf: date)
-		} else if(year){
-			setupYearGraphValuesFrom(yearOf: date)
-		}
-		updateLineGraph()
+		update(with: date, range: currentRange)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -180,7 +171,12 @@ class LineGraphViewController: UIViewController {
     @IBAction func presentPieGraph(_ sender: Any) {
         performSegue(withIdentifier: "categorySegue", sender: expensesByCategory)
     }
+	
     // MARK: - Navigation
+	
+	@IBAction func done() {
+		self.dismiss(animated: true, completion: nil)
+	}
 	
 	// Prepare for the segues
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -193,18 +189,42 @@ class LineGraphViewController: UIViewController {
 		if(segue.identifier == "weekEditor"){
 			let dest = segue.destination as! UpdateWeekRange
 			dest.allExpenses = allExpenses
+			dest.delegate = self
 		}
 		//Update the month of the data to be presented
 		if(segue.identifier == "monthEditor"){
 			let dest = segue.destination as! UpdateMonthRange
 			dest.allExpenses = allExpenses
+			dest.delegate = self
 		}
 		//Update the year of the data to be presented
 		if(segue.identifier == "yearEditor"){
 			let dest = segue.destination as! UpdateYearRange
 			dest.allExpenses = allExpenses
+			dest.delegate = self
 		}
 	}
-
+	
+	func update(with date: Date, range: DateRange) {
+		expensesByDate = [String: Double]()
+		expensesByCategory = ["Food": 0.0, "Travel": 0.0, "Leisure": 0.0, "Supplies": 0.0, "Other": 0.0]
+		switch range {
+		case .Weekly:
+			currentRange = DateRange.Weekly
+			setupWeeklyGraphValuesFrom(weekOf: date)
+		case .Monthly:
+			currentRange = DateRange.Monthly
+			setupMonthGraphValuesFrom(monthOf: date)
+		case .Yearly:
+			currentRange = DateRange.Yearly
+			setupYearGraphValuesFrom(yearOf: date)
+		}
+		updateLineGraph()
+	}
+	enum DateRange {
+		case Weekly
+		case Monthly
+		case Yearly
+	}
 }
 
