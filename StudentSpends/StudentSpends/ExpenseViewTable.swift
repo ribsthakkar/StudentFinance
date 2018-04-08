@@ -89,7 +89,7 @@ extension ExpenseViewTable: UITableViewDataSource {
 		//set the labels on the cell and cellDelegate
 		cell.nameOfExpense.text = expense.name
 		let dFormatter = DateFormatter()
-		dFormatter.dateFormat = "dd/MM/yyyy"
+		dFormatter.dateFormat = "MM/dd/yyyy"
 		cell.dateOfExpense.text = dFormatter.string(from: expense.date! as Date)
 		cell.delegate = self
 		return cell

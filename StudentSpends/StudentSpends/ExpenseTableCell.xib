@@ -17,12 +17,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="404" height="73.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cv-nU-jrl">
-                        <rect key="frame" x="20" y="26" width="45" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-1c-0rz">
                         <rect key="frame" x="324" y="26" width="36" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,6 +29,12 @@
                             <action selector="infoTapped" destination="81u-jJ-08V" eventType="touchUpInside" id="kpH-eR-VM2"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cv-nU-jrl">
+                        <rect key="frame" x="20" y="26" width="45" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TUd-cV-4be" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="1On-A4-BfY"/>
@@ -50,7 +50,7 @@
                 <outlet property="moreInfo" destination="TUd-cV-4be" id="AG4-Zv-GYR"/>
                 <outlet property="nameOfExpense" destination="6Cv-nU-jrl" id="kLH-YC-ffQ"/>
             </connections>
-            <point key="canvasLocation" x="141" y="36"/>
+            <point key="canvasLocation" x="36" y="49"/>
         </tableViewCell>
     </objects>
 </document>

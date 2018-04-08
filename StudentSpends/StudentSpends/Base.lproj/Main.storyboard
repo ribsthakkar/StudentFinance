@@ -528,7 +528,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Add to Expenses" id="Qqq-vv-mzH">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="VYn-jY-swz"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="VYn-jY-swz">
+                                            <connections>
+                                                <segue destination="Jmt-wV-1Ot" kind="presentation" id="Nlk-AL-Je5"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -567,10 +571,10 @@
             </objects>
             <point key="canvasLocation" x="2461.5999999999999" y="-401.64917541229386"/>
         </scene>
-        <!--Default Expense View-->
+        <!--Default Expense View Table-->
         <scene sceneID="uQG-w5-r3U">
             <objects>
-                <viewController id="Jmt-wV-1Ot" customClass="DefaultExpenseView" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jmt-wV-1Ot" customClass="DefaultExpenseViewTable" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j8p-8o-C1p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,7 +583,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Default Expenses" id="19n-fo-kpK">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Kd7-mb-RRb"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Kd7-mb-RRb">
+                                            <connections>
+                                                <action selector="done" destination="Jmt-wV-1Ot" id="gQY-X1-cu3"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sZz-XG-8Hm">
                                             <connections>
                                                 <segue destination="TrQ-i4-MIW" kind="presentation" id="jws-TK-LJp"/>
@@ -607,15 +615,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sdo-vZ-lVj"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseTable" destination="8VD-Ar-gUZ" id="wDz-tQ-8gR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ih-mp-esF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3601" y="-402"/>
+            <point key="canvasLocation" x="3418" y="-402"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Default Expense View-->
         <scene sceneID="8DX-3F-ifQ">
             <objects>
-                <viewController id="TrQ-i4-MIW" sceneMemberID="viewController">
+                <viewController id="TrQ-i4-MIW" customClass="AddDefaultExpenseView" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJS-oB-Tzg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -625,8 +636,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Default Expense" id="euk-nF-6hH">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="c8f-kP-OOt"/>
-                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="x5e-Fj-7gc"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="c8f-kP-OOt">
+                                            <connections>
+                                                <action selector="cancel" destination="TrQ-i4-MIW" id="gfY-5f-9AW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="x5e-Fj-7gc">
+                                            <connections>
+                                                <action selector="buttonSave" destination="TrQ-i4-MIW" id="aT7-T8-5om"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -672,10 +691,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="STM-j4-rgF"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseName" destination="k7e-u2-0uL" id="RfN-9v-H4e"/>
+                        <outlet property="expensePrice" destination="ikn-JH-iG8" id="1Ab-OC-c5S"/>
+                        <outlet property="expenseType" destination="T40-cj-mJQ" id="0kT-ZB-Rzn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Fy-rc-RiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4524" y="-403.44827586206901"/>
+            <point key="canvasLocation" x="4375" y="-403"/>
         </scene>
         <!--Update Month Range-->
         <scene sceneID="iPD-aM-yPL">

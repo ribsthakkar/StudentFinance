@@ -20,10 +20,13 @@
 		3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */; };
 		3C4BAC591FF9549D002F4985 /* ExpenseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */; };
 		3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */; };
-		3C55F86D2056CC4C009D5799 /* DefaultExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55F86C2056CC4C009D5799 /* DefaultExpenseView.swift */; };
+		3C55F86D2056CC4C009D5799 /* DefaultExpenseViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C55F86C2056CC4C009D5799 /* DefaultExpenseViewTable.swift */; };
 		3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */; };
 		3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D41FF82C4800BB0F3B /* ExpenseData.xcdatamodeld */; };
 		3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */; };
+		3CC0330B207A98660030881A /* DefaultExpenseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC0330A207A98660030881A /* DefaultExpenseTableCell.xib */; };
+		3CC0330D207A99450030881A /* DefaultExpenseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */; };
+		3CC0330F207A9BC60030881A /* AddDefaultExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0330E207A9BC60030881A /* AddDefaultExpenseView.swift */; };
 		3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */; };
 		3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */; };
 		3CED836B1FF6ED9E006D0D30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */; };
@@ -61,10 +64,13 @@
 		3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewTable.swift; sourceTree = "<group>"; };
 		3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableCell.xib; sourceTree = "<group>"; };
 		3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableCell.swift; sourceTree = "<group>"; };
-		3C55F86C2056CC4C009D5799 /* DefaultExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExpenseView.swift; sourceTree = "<group>"; };
+		3C55F86C2056CC4C009D5799 /* DefaultExpenseViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExpenseViewTable.swift; sourceTree = "<group>"; };
 		3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		3C75E0D51FF82C4800BB0F3B /* ExpenseData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseData.xcdatamodel; sourceTree = "<group>"; };
 		3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		3CC0330A207A98660030881A /* DefaultExpenseTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultExpenseTableCell.xib; sourceTree = "<group>"; };
+		3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExpenseTableCell.swift; sourceTree = "<group>"; };
+		3CC0330E207A9BC60030881A /* AddDefaultExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDefaultExpenseView.swift; sourceTree = "<group>"; };
 		3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetails.swift; sourceTree = "<group>"; };
 		3CED83651FF6ED9E006D0D30 /* StudentSpends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSpends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,11 +133,14 @@
 				3CED83681FF6ED9E006D0D30 /* AppDelegate.swift */,
 				3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */,
 				3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */,
+				3C55F86C2056CC4C009D5799 /* DefaultExpenseViewTable.swift */,
+				3CC0330E207A9BC60030881A /* AddDefaultExpenseView.swift */,
 				3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */,
 				3CD278A01FFC2A0F00C7A224 /* ExpenseDetails.swift */,
 				3C4BAC5A1FF9B067002F4985 /* ExpenseTableCell.swift */,
 				3C4BAC581FF9549D002F4985 /* ExpenseTableCell.xib */,
-				3C55F86C2056CC4C009D5799 /* DefaultExpenseView.swift */,
+				3CC0330A207A98660030881A /* DefaultExpenseTableCell.xib */,
+				3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
 				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
 				3C2972F02011100500DA12B5 /* UpdateYearRange.swift */,
@@ -222,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */,
+				3CC0330B207A98660030881A /* DefaultExpenseTableCell.xib in Resources */,
 				3C4BAC591FF9549D002F4985 /* ExpenseTableCell.xib in Resources */,
 				3C464B84200E5AC500CF2C5A /* tessdata in Resources */,
 				3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */,
@@ -292,8 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC0330D207A99450030881A /* DefaultExpenseTableCell.swift in Sources */,
 				3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */,
 				3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */,
+				3CC0330F207A9BC60030881A /* AddDefaultExpenseView.swift in Sources */,
 				3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */,
 				3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */,
 				3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */,
@@ -303,7 +315,7 @@
 				3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */,
 				3CED83691FF6ED9E006D0D30 /* AppDelegate.swift in Sources */,
 				3C464BCE200E7AFB00CF2C5A /* UpdateWeekRange.swift in Sources */,
-				3C55F86D2056CC4C009D5799 /* DefaultExpenseView.swift in Sources */,
+				3C55F86D2056CC4C009D5799 /* DefaultExpenseViewTable.swift in Sources */,
 				3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */,
 				3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */,
 				3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */,
