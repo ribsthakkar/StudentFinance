@@ -476,7 +476,7 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Load" id="JcR-qA-boF">
                             <connections>
-                                <segue destination="TPQ-Nq-WqB" kind="presentation" id="O8V-dL-4eU"/>
+                                <segue destination="TPQ-Nq-WqB" kind="presentation" identifier="defaultExpenseTableSegue" id="O8V-dL-4eU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

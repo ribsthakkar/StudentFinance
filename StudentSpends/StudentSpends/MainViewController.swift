@@ -40,7 +40,7 @@ class MainViewController: UIViewController, DidDataUpdateDelegate {
 	func getData() {
 		//Create fetch request object and apply the sorting descriptor for most recent dates to older dates
 		let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-		let sort = NSSortDescriptor(key: #keyPath(Expense.date), ascending: false)
+		let sort = NSSortDescriptor(key: #keyPath(Expense.date), ascending: true)
 		fetchRequest.sortDescriptors = [sort]
 		//fetch the array of Expense objects and set it to the class variable
 		do {

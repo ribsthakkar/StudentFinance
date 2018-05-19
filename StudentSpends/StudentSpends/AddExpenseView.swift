@@ -170,8 +170,9 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 		// Get the new view controller using segue.destinationViewController.
 		// Pass the selected object to the new view controller.
 		if(segue.identifier == "defaultExpenseTableSegue"){
-			let dest = segue.destination as! DefaultExpenseViewTable
-			dest.delegate = self
+			let dest = segue.destination as! UINavigationController
+			let realDest = dest.viewControllers[0] as! DefaultExpenseViewTable
+			realDest.delegate = self
 		}
 	}
     

@@ -44,6 +44,18 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 		done()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		if changed {
+			allExpenses.sort(by: {
+				let date0 = $0.date! as Date
+				let date1 = $1.date! as Date
+				return date0 < date1
+			})
+		}
+	}
+	
+	
 	//prepare for segue to look at further details about a specific expense
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Get the new view controller using segue.destinationViewController.
@@ -100,4 +112,3 @@ extension ExpenseViewTable: UITableViewDataSource {
 		return cell
 	}
 }
-
