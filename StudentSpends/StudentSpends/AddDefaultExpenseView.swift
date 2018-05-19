@@ -25,17 +25,6 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 		self.expenseType.delegate = self
 		self.expenseName.delegate = self
 		self.expensePrice.delegate = self
-		
-		//update prewritten information if there is any
-		expenseName.text = expense.name
-		expensePrice.text = String(expense.price)
-		if let type = expense.type{
-			expenseType.selectRow(pickerDataSource.index(of: type)!, inComponent: 0, animated: false)
-		}
-	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
 	@IBAction func buttonSave(){

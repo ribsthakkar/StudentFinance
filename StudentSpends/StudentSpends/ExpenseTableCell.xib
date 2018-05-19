@@ -18,17 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-1c-0rz">
-                        <rect key="frame" x="324" y="26" width="36" height="21"/>
+                        <rect key="frame" x="348" y="26" width="36" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-cV-4be">
-                        <rect key="frame" x="375" y="25" width="22" height="22"/>
-                        <connections>
-                            <action selector="infoTapped" destination="81u-jJ-08V" eventType="touchUpInside" id="kpH-eR-VM2"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cv-nU-jrl">
                         <rect key="frame" x="20" y="26" width="45" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -37,17 +31,15 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="TUd-cV-4be" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="1On-A4-BfY"/>
-                    <constraint firstAttribute="trailing" secondItem="TUd-cV-4be" secondAttribute="trailing" constant="7" id="6Yx-T1-KBW"/>
+                    <constraint firstItem="uhY-1c-0rz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Cv-nU-jrl" secondAttribute="trailing" priority="250" constant="10" id="JMr-ay-REr"/>
                     <constraint firstItem="6Cv-nU-jrl" firstAttribute="leading" secondItem="56w-Yu-W43" secondAttribute="leading" constant="20" id="a8c-yf-Kny"/>
+                    <constraint firstAttribute="trailing" secondItem="uhY-1c-0rz" secondAttribute="trailing" constant="20" id="mWT-gv-bzf"/>
                     <constraint firstItem="uhY-1c-0rz" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="mrU-Bb-n2L"/>
                     <constraint firstItem="6Cv-nU-jrl" firstAttribute="centerY" secondItem="56w-Yu-W43" secondAttribute="centerY" id="qOY-uv-JlO"/>
-                    <constraint firstItem="TUd-cV-4be" firstAttribute="leading" secondItem="uhY-1c-0rz" secondAttribute="trailing" constant="15" id="ype-3w-iiG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateOfExpense" destination="uhY-1c-0rz" id="N4w-wK-uuH"/>
-                <outlet property="moreInfo" destination="TUd-cV-4be" id="AG4-Zv-GYR"/>
                 <outlet property="nameOfExpense" destination="6Cv-nU-jrl" id="kLH-YC-ffQ"/>
             </connections>
             <point key="canvasLocation" x="36" y="49"/>

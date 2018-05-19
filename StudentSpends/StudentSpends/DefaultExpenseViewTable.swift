@@ -8,27 +8,29 @@
 
 import UIKit
 import CoreData
-class DefaultExpenseViewTable: UIViewController, DefaultExpenseTableCellDelegate {
+
+protocol InsertDefaultInfoDelegate: class {
+	func insertDefaults(sender: ExpenseDefault)
+}
+class DefaultExpenseViewTable: UIViewController, UITableViewDelegate {
 	//instantiate class variables (table for expenses) and array of expenses
 	@IBOutlet weak var expenseTable: UITableView!
 	private let cellId = "defaultExpenseCell"
 	var allDefaultExpenses = [ExpenseDefault]()
+	weak var delegate: AddExpenseView?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "DefaultExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
+		expenseTable.dataSource = self
 		expenseTable.reloadData()
+		expenseTable.delegate = self
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		getData()
-	}
-	//function called to perfom segue with a specific cell is tapped
-	func cellTapped(sender: DefaultExpenseTableCell) {
-		if let indexPath = expenseTable.indexPath(for: sender) {
-			
-		}
+		expenseTable.reloadData()
 	}
 	@IBAction func done() {
 		self.dismiss(animated: true, completion: nil)
@@ -44,6 +46,13 @@ class DefaultExpenseViewTable: UIViewController, DefaultExpenseTableCellDelegate
 		} catch {
 			print("Cannot fetch Expenses")
 		}
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let index = indexPath.row
+		delegate?.insertDefaults(sender: allDefaultExpenses[index])
+		tableView.deselectRow(at: indexPath, animated: true)
+		done()
 	}
 }
 //DataSource inherited extension
@@ -62,12 +71,10 @@ extension DefaultExpenseViewTable: UITableViewDataSource {
 		//create cell object
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! DefaultExpenseTableCell
 		let expense = allDefaultExpenses[indexPath.row]
-		
 		//set the labels on the cell and cellDelegate
 		cell.nameOfExpense.text = expense.name
 		let amountString = String(format: "$%.02f", expense.price)
 		cell.priceOfExpense.text = amountString
-		
 		return cell
 	}
 }

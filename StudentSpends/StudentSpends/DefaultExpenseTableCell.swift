@@ -7,16 +7,13 @@
 //
 
 import UIKit
-protocol DefaultExpenseTableCellDelegate: class {
-	func cellTapped(sender: DefaultExpenseTableCell)
-}
+
 class DefaultExpenseTableCell: UITableViewCell {
 	
 	//Define all of the connections to nib and setup class variables
 	
 	@IBOutlet weak var priceOfExpense: UILabel!
 	@IBOutlet weak var nameOfExpense: UILabel!
-	weak var delegate: DefaultExpenseTableCellDelegate!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -28,18 +25,11 @@ class DefaultExpenseTableCell: UITableViewCell {
 		// Configure the view for the selected state
 		//delegate.cellTapped(sender: self)
 	}
-	
-	//call the cellTapped fucntion when the moreInfo button is tapped
-	@IBAction func infoTapped() {
-		delegate.cellTapped(sender: self)
-	}
-	
 	//clear out labels and delegate for the reused table cells
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		
 		priceOfExpense.text = ""
 		nameOfExpense.text = ""
-		delegate = nil
 	}
 }

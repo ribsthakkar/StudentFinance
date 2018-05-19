@@ -48,10 +48,6 @@ class ExpenseDetails: UIViewController {
 		expenseType.text = "Type of Expense: " +  expenseObject.type!
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	@IBAction func done() {
 		self.dismiss(animated: true, completion: nil)
 	}

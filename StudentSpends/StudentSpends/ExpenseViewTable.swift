@@ -11,7 +11,7 @@ import CoreData
 protocol DidDataUpdateDelegate: class {
 	func updated(yes: Bool)
 }
-class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateExpenseTableDelegate {
+class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTableDelegate {
 	
 	func update(with expense: Expense) {
 		allExpenses.append(expense)
@@ -33,12 +33,16 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateEx
 	override func viewDidLoad() {
         super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		
+		expenseTable.delegate = self
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
-		expenseTable.allowsSelection = false;
 		expenseTable.reloadData()
     }
+	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		super.willMove(toParentViewController: parent)
+		done()
+	}
 	
 	//prepare for segue to look at further details about a specific expense
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,17 +56,17 @@ class ExpenseViewTable: UIViewController, ExpenseTableViewCellDelegate, UpdateEx
 			dest.delegate = self
 		}
 		if segue.identifier == "addExpenseSegue" {
-			let dest = segue.destination as! AddExpenseView
-			dest.delegate = self
+			let dest = segue.destination as! UINavigationController
+			let realDest = dest.viewControllers[0] as! AddExpenseView
+			realDest.delegate = self
 		}
+	}	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[allExpenses.count - 1 - indexPath.row])
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
-	//function called to perfom segue with a specific cell is tapped
-	func cellTapped(sender: ExpenseTableCell) {
-		if let indexPath = expenseTable.indexPath(for: sender) {
-			performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[indexPath.row])
-		}
-	}
-	@IBAction func done() {
+	
+	func done() {
 		delegate?.updated(yes: changed)
 		changed = false
 		self.dismiss(animated: true, completion: nil)
@@ -84,14 +88,15 @@ extension ExpenseViewTable: UITableViewDataSource {
 		
 		//create cell object
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ExpenseTableCell
-		let expense = allExpenses[indexPath.row]
+		let expense = allExpenses[allExpenses.count - 1 - indexPath.row]
 		
 		//set the labels on the cell and cellDelegate
 		cell.nameOfExpense.text = expense.name
 		let dFormatter = DateFormatter()
 		dFormatter.dateFormat = "MM/dd/yyyy"
-		cell.dateOfExpense.text = dFormatter.string(from: expense.date! as Date)
-		cell.delegate = self
+		if let date = expense.date {
+			cell.dateOfExpense.text = dFormatter.string(from: date as Date)
+		}
 		return cell
 	}
 }

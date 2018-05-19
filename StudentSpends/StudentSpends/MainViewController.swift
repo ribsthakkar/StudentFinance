@@ -18,6 +18,7 @@ class MainViewController: UIViewController, DidDataUpdateDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 		allExpenses = [Expense]()
+//		navigationController?.navigationBar.prefersLargeTitles = true
     }
 	override func viewDidAppear(_ animated: Bool) {
 		week = false
