@@ -19,7 +19,7 @@ class LineGraphViewController: UIViewController, UpdateRangeDelegate {
 	var currentRange = DateRange.Weekly
 	var date = Date()
 	@IBOutlet weak var lineChart: LineChartView!
-    @IBAction func editDateRanges(_ sender: Any) {
+    @IBAction func editDateRanges() {
 		//Go to the specific picker of the range of dates initially picked
 		switch currentRange {
 		case .Weekly:
@@ -38,10 +38,11 @@ class LineGraphViewController: UIViewController, UpdateRangeDelegate {
 		//set date range for the graph
 		update(with: date, range: currentRange)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		let backButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDateRanges))
+		self.parent?.parent?.navigationItem.rightBarButtonItem = backButton
+	}
     func updateLineGraph(){
 		//create ChartDataEntry object to hold the entries
 		var lineChartEntry  = [ChartDataEntry]()
