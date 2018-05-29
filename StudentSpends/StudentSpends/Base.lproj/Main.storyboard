@@ -62,7 +62,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Student Spends" largeTitleDisplayMode="always" id="qNZ-Oe-d3C"/>
                     <connections>
-                        <segue destination="v0d-fP-4MV" kind="show" identifier="graphSegue" id="Mdq-uc-IHX"/>
+                        <segue destination="rvm-FC-AU2" kind="show" identifier="graphSegue" id="VDP-4s-n7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -111,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="670" y="-414"/>
         </scene>
-        <!--Line Graph View Controller-->
+        <!--Line Graph-->
         <scene sceneID="lEM-dW-89m">
             <objects>
                 <viewController id="fpm-j1-vuX" customClass="LineGraphViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poB-4D-Yc0" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -133,6 +133,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b48-PS-zc6"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Line Graph" id="rHs-do-AAC"/>
                     <navigationItem key="navigationItem" id="wLN-MT-88U">
                         <barButtonItem key="leftBarButtonItem" title="Student Spends" style="done" id="fGX-W4-Bqq"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="MB1-bG-KH6"/>
@@ -146,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIe-QH-LIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2823" y="339"/>
+            <point key="canvasLocation" x="1575" y="339"/>
         </scene>
         <!--Update Week Range-->
         <scene sceneID="bMs-ko-Dqf">
@@ -201,9 +202,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTG-ez-OSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3647" y="339"/>
+            <point key="canvasLocation" x="3984.8000000000002" y="338.68065967016497"/>
         </scene>
-        <!--Pie Graph View Controller-->
+        <!--Pie Graph-->
         <scene sceneID="MTb-h8-2vv">
             <objects>
                 <viewController id="8ph-kp-pYK" customClass="PieGraphViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,7 +213,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znQ-4e-qVg" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -225,6 +226,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QKF-Tw-ijR"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pie Graph" id="2gt-mi-uK5"/>
                     <navigationItem key="navigationItem" id="ZKB-Uv-Yif"/>
                     <connections>
                         <outlet property="pieChart" destination="znQ-4e-qVg" id="VQL-kJ-0Ut"/>
@@ -232,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHh-2x-2N3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2865" y="1164"/>
+            <point key="canvasLocation" x="1574" y="1164"/>
         </scene>
         <!--Expense Details-->
         <scene sceneID="aB3-7L-CD2">
@@ -633,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMD-iz-Lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="1164"/>
+            <point key="canvasLocation" x="4940" y="1163.568215892054"/>
         </scene>
         <!--Update Year Range-->
         <scene sceneID="uya-qq-dih">
@@ -685,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LE-Fw-9LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4602" y="453"/>
+            <point key="canvasLocation" x="4940" y="452.92353823088462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lfb-pW-vFd">
@@ -742,62 +744,22 @@
             <point key="canvasLocation" x="4094.4000000000001" y="-402.99850074962524"/>
         </scene>
         <!--Graphs-->
-        <scene sceneID="UPR-aP-gfc">
+        <scene sceneID="FBV-AK-IxN">
             <objects>
-                <tabBarController title="Graphs" automaticallyAdjustsScrollViewInsets="NO" id="v0d-fP-4MV" sceneMemberID="viewController">
+                <tabBarController title="Graphs" automaticallyAdjustsScrollViewInsets="NO" id="rvm-FC-AU2" customClass="MainGraphViewController" customModule="StudentSpends" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uDw-ae-O27">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bwR-lL-la3">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BOW-Jw-jDm" kind="relationship" relationship="viewControllers" id="LLa-VF-g5R"/>
-                        <segue destination="VL4-1Z-ROg" kind="relationship" relationship="viewControllers" id="tZW-gk-hZT"/>
+                        <segue destination="fpm-j1-vuX" kind="relationship" relationship="viewControllers" id="U2C-e5-9wp"/>
+                        <segue destination="8ph-kp-pYK" kind="relationship" relationship="viewControllers" id="ULj-wG-32d"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HsI-Je-Zhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzh-af-Q5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="360"/>
-        </scene>
-        <!--Line Graph-->
-        <scene sceneID="LoY-Ne-pgE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BOW-Jw-jDm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Line Graph" id="Sph-3k-abQ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fe8-iZ-Ow7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fpm-j1-vuX" kind="relationship" relationship="rootViewController" id="aOt-uL-jk1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O9x-GV-498" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem title="Title" id="fR4-eR-ENP"/>
-            </objects>
-            <point key="canvasLocation" x="1852.8" y="339.13043478260875"/>
-        </scene>
-        <!--Pie Graph-->
-        <scene sceneID="w7M-Kk-MfW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VL4-1Z-ROg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pie Graph" id="UqW-pu-2fb"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i3F-u9-Sch">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8ph-kp-pYK" kind="relationship" relationship="rootViewController" id="0jQ-cI-9hI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O8J-Ga-IBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1852" y="1164"/>
+            <point key="canvasLocation" x="-105" y="617"/>
         </scene>
     </scenes>
 </document>

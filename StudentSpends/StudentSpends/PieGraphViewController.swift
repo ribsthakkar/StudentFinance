@@ -9,9 +9,8 @@
 import UIKit
 import Charts
 
-class PieGraphViewController: UIViewController {
+class PieGraphViewController: MainGraphViewController {
 	//Setup storyboard connections and class variables
-	var expensesByCategory = [String: Double]()
 	@IBOutlet weak var pieChart: PieChartView!
 	
     override func viewDidLoad() {
@@ -60,8 +59,5 @@ class PieGraphViewController: UIViewController {
 		pieChart.noDataText = "No data available"
 		pieChart.holeRadiusPercent = 0.2
 		pieChart.transparentCircleColor = UIColor.clear
-	}
-	@IBAction func done() {
-		self.dismiss(animated: true, completion: nil)
 	}
 }

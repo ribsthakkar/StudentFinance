@@ -56,14 +56,14 @@ class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 	@IBAction func done() {
 		//send the first of the specified year to LineGraphViewController
 		if(pickerDataSource.count == 0) {
-			delegate?.update(with: Date(), range: LineGraphViewController.DateRange.Yearly)
+			delegate?.update(with: Date(), range: MainGraphViewController.DateRange.Yearly)
 		} else {
 			let year = pickerDataSource[yearOptions.selectedRow(inComponent: 0)]
 			let when = "01/" + "01/" + String(year)
 			let dFormatter = DateFormatter()
 			dFormatter.dateFormat = "dd/MM/yyyy"
 			if let setDate = dFormatter.date(from: when){
-				delegate?.update(with: setDate, range: LineGraphViewController.DateRange.Yearly)
+				delegate?.update(with: setDate, range: MainGraphViewController.DateRange.Yearly)
 			}
 		}
 		dismiss(animated: true, completion: nil)

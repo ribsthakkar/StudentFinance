@@ -50,7 +50,7 @@ class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewData
     }
 	@IBAction func done() {
 		if(pickerDataSource[1].count == 0) {
-			delegate?.update(with: Date(), range: LineGraphViewController.DateRange.Monthly)
+			delegate?.update(with: Date(), range: MainGraphViewController.DateRange.Monthly)
 		} else {
 			let month = monthYearOptions.selectedRow(inComponent: 0)  + 1
 			let year = pickerDataSource[1][monthYearOptions.selectedRow(inComponent: 1)]
@@ -62,7 +62,7 @@ class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewData
 				timeInterval.day = -1
 				timeInterval.month = 1
 				let date = Calendar.current.date(byAdding: timeInterval, to: updatedDate)!
-				delegate?.update(with: date, range: LineGraphViewController.DateRange.Monthly)
+				delegate?.update(with: date, range: MainGraphViewController.DateRange.Monthly)
 			}
 		}
 		dismiss(animated: true, completion: nil)

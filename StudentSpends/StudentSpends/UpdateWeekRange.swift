@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UpdateRangeDelegate: class {
-	func update(with date: Date, range: LineGraphViewController.DateRange)
+	func update(with date: Date, range: MainGraphViewController.DateRange)
 }
 
 class UpdateWeekRange: UIViewController {
@@ -36,7 +36,7 @@ class UpdateWeekRange: UIViewController {
 		var timeInterval = DateComponents()
 		timeInterval.day = 7
 		let date = Calendar.current.date(byAdding: timeInterval, to: dateUpdate.date)!
-		delegate?.update(with: date, range: LineGraphViewController.DateRange.Weekly)
+		delegate?.update(with: date, range: MainGraphViewController.DateRange.Weekly)
 		dismiss(animated: true, completion: nil)
 	}
 

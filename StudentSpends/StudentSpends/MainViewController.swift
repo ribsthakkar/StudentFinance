@@ -87,15 +87,15 @@ class MainViewController: UIViewController, DidDataUpdateDelegate {
 			let realDest = (graphTypes[0] as! UINavigationController).viewControllers[0] as! LineGraphViewController
 				realDest.allExpenses = allExpenses
 				if(week){
-					realDest.currentRange = LineGraphViewController.DateRange.Weekly
+					realDest.currentRange = MainGraphViewController.DateRange.Weekly
 				}
 				else if(month){
 					print("setMonthly")
-					realDest.currentRange = LineGraphViewController.DateRange.Monthly
+					realDest.currentRange = MainGraphViewController.DateRange.Monthly
 				}
 				else if(year){
 					print("setYearly")
-					realDest.currentRange = LineGraphViewController.DateRange.Yearly
+					realDest.currentRange = MainGraphViewController.DateRange.Yearly
 				}
 			} else {
 				print("Tab Bar controller error")

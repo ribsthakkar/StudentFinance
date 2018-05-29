@@ -24,6 +24,7 @@
 		3C75E0D31FF80A9700BB0F3B /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */; };
 		3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D41FF82C4800BB0F3B /* ExpenseData.xcdatamodeld */; };
 		3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */; };
+		3CBBAB2520BD92B500649798 /* MainGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBAB2420BD92B500649798 /* MainGraphViewController.swift */; };
 		3CC0330B207A98660030881A /* DefaultExpenseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC0330A207A98660030881A /* DefaultExpenseTableCell.xib */; };
 		3CC0330D207A99450030881A /* DefaultExpenseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */; };
 		3CC0330F207A9BC60030881A /* AddDefaultExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0330E207A9BC60030881A /* AddDefaultExpenseView.swift */; };
@@ -68,6 +69,7 @@
 		3C75E0D21FF80A9700BB0F3B /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		3C75E0D51FF82C4800BB0F3B /* ExpenseData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseData.xcdatamodel; sourceTree = "<group>"; };
 		3C75E0D81FF835F600BB0F3B /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		3CBBAB2420BD92B500649798 /* MainGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGraphViewController.swift; sourceTree = "<group>"; };
 		3CC0330A207A98660030881A /* DefaultExpenseTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultExpenseTableCell.xib; sourceTree = "<group>"; };
 		3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExpenseTableCell.swift; sourceTree = "<group>"; };
 		3CC0330E207A9BC60030881A /* AddDefaultExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDefaultExpenseView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				3CC0330C207A99450030881A /* DefaultExpenseTableCell.swift */,
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
 				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
+				3CBBAB2420BD92B500649798 /* MainGraphViewController.swift */,
 				3C2972F02011100500DA12B5 /* UpdateYearRange.swift */,
 				3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */,
 				3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */,
@@ -320,6 +323,7 @@
 				3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */,
 				3C75E0D91FF835F600BB0F3B /* PersistanceService.swift in Sources */,
 				3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */,
+				3CBBAB2520BD92B500649798 /* MainGraphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
