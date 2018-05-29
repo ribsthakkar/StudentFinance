@@ -31,7 +31,7 @@ class MainGraphViewController: UITabBarController, UpdateRangeDelegate {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		let backButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDateRanges))
-		self.parent?.navigationItem.rightBarButtonItem = backButton
+		self.navigationItem.rightBarButtonItem = backButton
 	}
 	
 	@IBAction func editDateRanges() {
@@ -60,8 +60,12 @@ class MainGraphViewController: UITabBarController, UpdateRangeDelegate {
 			currentRange = DateRange.Yearly
 			setupYearGraphValuesFrom(yearOf: date)
 		}
-		//updateLineGraph()
-		
+		if let lineController = self.viewControllers?[0] as! LineGraphViewController? {
+			lineController.expensesByDate = expensesByDate
+		}
+		if let pieController = self.viewControllers?[1] as! PieGraphViewController? {
+			pieController.expensesByCategory = expensesByCategory
+		}
 	}
 	
 	//Method to setup the Dictionaries for the weekly time interval

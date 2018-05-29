@@ -82,23 +82,18 @@ class MainViewController: UIViewController, DidDataUpdateDelegate {
 		// Get the new view controller using segue.destinationViewController.
 		// Pass the selected object to the new view controller.
 		if(segue.identifier == "graphSegue"){
-			let dest = segue.destination as! UITabBarController
-			if let graphTypes = dest.customizableViewControllers {
-			let realDest = (graphTypes[0] as! UINavigationController).viewControllers[0] as! LineGraphViewController
-				realDest.allExpenses = allExpenses
-				if(week){
-					realDest.currentRange = MainGraphViewController.DateRange.Weekly
-				}
-				else if(month){
-					print("setMonthly")
-					realDest.currentRange = MainGraphViewController.DateRange.Monthly
-				}
-				else if(year){
-					print("setYearly")
-					realDest.currentRange = MainGraphViewController.DateRange.Yearly
-				}
-			} else {
-				print("Tab Bar controller error")
+			let dest = segue.destination as! MainGraphViewController
+			dest.allExpenses = allExpenses
+			if(week){
+				dest.currentRange = MainGraphViewController.DateRange.Weekly
+			}
+			else if(month){
+				print("setMonthly")
+				dest.currentRange = MainGraphViewController.DateRange.Monthly
+			}
+			else if(year){
+				print("setYearly")
+				dest.currentRange = MainGraphViewController.DateRange.Yearly
 			}
 		} else if(segue.identifier == "viewTableSegue") {
 			let dest = segue.destination as! ExpenseViewTable

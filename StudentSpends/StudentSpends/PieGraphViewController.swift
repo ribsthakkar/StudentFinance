@@ -9,25 +9,18 @@
 import UIKit
 import Charts
 
-class PieGraphViewController: MainGraphViewController {
+class PieGraphViewController: UIViewController {
 	//Setup storyboard connections and class variables
 	@IBOutlet weak var pieChart: PieChartView!
-	
+	var expensesByCategory = [String: Double]()
     override func viewDidLoad() {
         super.viewDidLoad()
-		updatePieGraph()
-        // Do any additional setup after loading the view.
     }
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		updatePieGraph()
+		print("piegraph Appear")
 	}
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 	func updatePieGraph() {
-		
 		//Access keys of the dictionary, which are the expense categories
 		let keys = Array(expensesByCategory.keys)
 		//create array of PieChartDataEntries

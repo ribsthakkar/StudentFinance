@@ -140,14 +140,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lineChart" destination="poB-4D-Yc0" id="1Tx-Ey-VJV"/>
-                        <segue destination="snk-fZ-rWH" kind="presentation" identifier="weekEditor" id="eNz-t5-1lO"/>
-                        <segue destination="gag-sv-P3s" kind="presentation" identifier="monthEditor" id="C7c-ro-e6A"/>
-                        <segue destination="pU5-n0-zfz" kind="presentation" identifier="yearEditor" id="tvn-b5-qUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIe-QH-LIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="339"/>
+            <point key="canvasLocation" x="1230" y="339"/>
         </scene>
         <!--Update Week Range-->
         <scene sceneID="bMs-ko-Dqf">
@@ -202,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTG-ez-OSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984.8000000000002" y="338.68065967016497"/>
+            <point key="canvasLocation" x="-106" y="1488"/>
         </scene>
         <!--Pie Graph-->
         <scene sceneID="MTb-h8-2vv">
@@ -234,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHh-2x-2N3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="1164"/>
+            <point key="canvasLocation" x="1230" y="1164"/>
         </scene>
         <!--Expense Details-->
         <scene sceneID="aB3-7L-CD2">
@@ -635,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMD-iz-Lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4940" y="1163.568215892054"/>
+            <point key="canvasLocation" x="-1617" y="653"/>
         </scene>
         <!--Update Year Range-->
         <scene sceneID="uya-qq-dih">
@@ -687,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LE-Fw-9LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4940" y="452.92353823088462"/>
+            <point key="canvasLocation" x="-1169" y="1337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lfb-pW-vFd">
@@ -755,6 +752,9 @@
                     <connections>
                         <segue destination="fpm-j1-vuX" kind="relationship" relationship="viewControllers" id="U2C-e5-9wp"/>
                         <segue destination="8ph-kp-pYK" kind="relationship" relationship="viewControllers" id="ULj-wG-32d"/>
+                        <segue destination="snk-fZ-rWH" kind="presentation" identifier="weekEditor" id="5DF-4y-PNx"/>
+                        <segue destination="gag-sv-P3s" kind="presentation" identifier="monthEditor" id="9KR-Ou-S8Q"/>
+                        <segue destination="pU5-n0-zfz" kind="presentation" identifier="yearEditor" id="YDI-f5-zK1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzh-af-Q5q" userLabel="First Responder" sceneMemberID="firstResponder"/>

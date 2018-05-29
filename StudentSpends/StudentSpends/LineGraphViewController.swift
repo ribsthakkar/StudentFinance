@@ -9,15 +9,17 @@
 import UIKit
 import Charts
 
-class LineGraphViewController: MainGraphViewController {
+class LineGraphViewController: UIViewController {
 	
 	//Setup storyboard connections and class variables
 	@IBOutlet weak var lineChart: LineChartView!
-    
+    var expensesByDate = [String: Double]()
 	override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+	override func viewWillAppear(_ animated: Bool) {
+		updateLineGraph()
+	}
     func updateLineGraph(){
 		//create ChartDataEntry object to hold the entries
 		var lineChartEntry  = [ChartDataEntry]()
@@ -50,17 +52,6 @@ class LineGraphViewController: MainGraphViewController {
 		lineChart.noDataText = "No data yet"
 		lineChart.data = data
 		lineChart.chartDescription?.text = "My Expenses"
-	}
-	
-//	//if button is pressed, the view will segue to the pie chart which shows expenses by category
-//    @IBAction func presentPieGraph(_ sender: Any) {
-//        performSegue(withIdentifier: "categorySegue", sender: expensesByCategory)
-//    }
-	
-    // MARK: - Navigation
-	
-	@IBAction func done() {
-		self.dismiss(animated: true, completion: nil)
 	}
 
 }
