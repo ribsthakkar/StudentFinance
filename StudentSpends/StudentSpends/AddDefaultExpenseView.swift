@@ -13,18 +13,35 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 	//Connections to story board and class instance variables
 	@IBOutlet var expenseName: UITextField!
 	@IBOutlet var expensePrice: UITextField!
-	@IBOutlet var expenseType: UIPickerView!
-	var expense = ExpenseDefault(context:PersistanceService.context)
-	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"];
+	@IBOutlet var expenseType: UITextField!
+	let expenseTypePicker = UIPickerView()
+	var expense:ExpenseDefault?
+	var saved:Bool = false
+	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"]
+	
+	override func viewWillAppear(_ animated: Bool) {
+		expense = ExpenseDefault(context:PersistanceService.context)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		//setup the input objects' delegates and restrictions
-		self.expenseType.dataSource = self
-		self.expenseType.delegate = self
-		self.expenseName.delegate = self
-		self.expensePrice.delegate = self
+		expenseTypePicker.dataSource = self
+		expenseTypePicker.delegate = self
+		expenseType.delegate = self
+		expenseName.delegate = self
+		expensePrice.delegate = self
+		
+		expenseType.inputView = expenseTypePicker
+		
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		if !saved {
+		PersistanceService.context.delete(expense!)
+		}
+		saved = false
 	}
 	
 	@IBAction func buttonSave(){
@@ -34,12 +51,12 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 			cancel()
 			return
 		} else{
-			expense.name = name
+			expense?.name = name
 		}
 		
 		//if empty price is submit then automatically cancel or else update expense object price
 		if let price = Double(expensePrice.text!) {
-			expense.price = price
+			expense?.price = price
 		} else {
 			print("Not a valid number: \(expensePrice.text!)")
 			cancel()
@@ -47,13 +64,22 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 		}
 		
 		//update expense object type
-		let type = pickerDataSource[expenseType.selectedRow(inComponent: 0)]
-		expense.type = type
-		
+		let typeText = expenseType.text
+		if typeText == nil || typeText!.count<=0 {
+			cancel()
+			return
+		} else {
+			let type = pickerDataSource[expenseTypePicker.selectedRow(inComponent: 0)]
+			expense?.type = type
+		}
+		self.navigationController?.popViewController(animated: true)
 		//save to CoreData and perform segue to return to tableView of expenses
 		PersistanceService.saveContext()
+		saved = true
 		self.dismiss(animated: true, completion: nil)
 	}
+	
+	
 	
 	//Methods to setup the PICKERVIEW for the expenseType picker
 	// The number of rows of data
@@ -69,7 +95,9 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
-	
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		expenseType.text = pickerDataSource[row]
+	}
 	//methods to close keyboard once we're done typing
 	override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?){
 		view.endEditing(true)
@@ -79,8 +107,14 @@ class AddDefaultExpenseView: UIViewController, UIPickerViewDelegate, UIPickerVie
 		self.view.endEditing(true)
 		return false
 	}
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		if textField.isEqual(expenseType) {
+			expenseType.text = "Food"
+		}
+	}
+	
 	@IBAction func cancel() {
-		PersistanceService.context.delete(expense)
 		self.dismiss(animated: true, completion: nil)
 	}
 }

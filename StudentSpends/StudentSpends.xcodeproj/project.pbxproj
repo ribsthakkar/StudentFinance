@@ -15,6 +15,7 @@
 		3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B82200E591800CF2C5A /* TesseractOCR.framework */; };
 		3C464B84200E5AC500CF2C5A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3C464B83200E5AC500CF2C5A /* tessdata */; };
 		3C464BCE200E7AFB00CF2C5A /* UpdateWeekRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */; };
+		3C4B354720EC4EAE008092D2 /* ChartRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */; };
 		3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */; };
 		3C4BAC551FF94DE9002F4985 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */; };
 		3C4BAC571FF95242002F4985 /* ExpenseViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */; };
@@ -60,6 +61,7 @@
 		3C464B83200E5AC500CF2C5A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		3C464BC2200E627900CF2C5A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeekRange.swift; sourceTree = "<group>"; };
+		3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRangeView.swift; sourceTree = "<group>"; };
 		3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C4BAC561FF95242002F4985 /* ExpenseViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewTable.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3CED836C1FF6ED9E006D0D30 /* Main.storyboard */,
 				3CED836A1FF6ED9E006D0D30 /* MainViewController.swift */,
 				3CBBAB2420BD92B500649798 /* MainGraphViewController.swift */,
+				3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */,
 				3C2972F02011100500DA12B5 /* UpdateYearRange.swift */,
 				3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */,
 				3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */,
@@ -310,6 +313,7 @@
 				3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */,
 				3CC0330F207A9BC60030881A /* AddDefaultExpenseView.swift in Sources */,
 				3C75E0D71FF8310900BB0F3B /* ExpenseData.xcdatamodeld in Sources */,
+				3C4B354720EC4EAE008092D2 /* ChartRangeView.swift in Sources */,
 				3C4BAC5B1FF9B067002F4985 /* ExpenseTableCell.swift in Sources */,
 				3CD278A11FFC2A0F00C7A224 /* ExpenseDetails.swift in Sources */,
 				3CED836B1FF6ED9E006D0D30 /* MainViewController.swift in Sources */,
