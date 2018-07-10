@@ -11,6 +11,7 @@ import UIKit
 class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 	var pickerDataSource:[[String]] = [["January","February","March","April","May","June","July","August","Septemeber","October","November","December"],[]]
 	weak var delegate: UpdateRangeDelegate?
+	let year = DateFormatter()
 	// The number of rows of data
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerDataSource[component].count
@@ -33,7 +34,6 @@ class UpdateMonthRange: UIViewController, UIPickerViewDelegate, UIPickerViewData
 		
 		//Find all existing years in data source and add to picker list
 		for exp in allExpenses{
-			let year = DateFormatter()
 			year.dateFormat = "yyyy"
 			let when = year.string(from: exp.date! as Date)
 			if(pickerDataSource[1].contains(when) == false){

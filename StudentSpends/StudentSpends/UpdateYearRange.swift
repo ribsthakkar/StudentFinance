@@ -11,6 +11,7 @@ import UIKit
 class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 	weak var delegate: UpdateRangeDelegate?
 	var pickerDataSource:[String] = []
+	let year = DateFormatter()
 	// The number of rows of data
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerDataSource.count
@@ -36,7 +37,6 @@ class UpdateYearRange: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 		
 		//Find all existing years in expense list and add to picker list
 		for exp in allExpenses{
-			let year = DateFormatter()
 			year.dateFormat = "yyyy"
 			let when = year.string(from: exp.date! as Date)
 			if(pickerDataSource.contains(when) == false){

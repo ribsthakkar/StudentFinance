@@ -34,16 +34,17 @@ class MainGraphViewController: UITabBarController, UpdateRangeDelegate {
 		self.navigationItem.rightBarButtonItem = backButton
 	}
 	
-	@IBAction func editDateRanges() {
+	@objc func editDateRanges() {
 		//Go to the specific picker of the range of dates initially picked
-		switch currentRange {
-		case .Weekly:
-			performSegue(withIdentifier: "weekEditor", sender: allExpenses)
-		case .Monthly:
-			performSegue(withIdentifier: "monthEditor", sender: allExpenses)
-		case .Yearly:
-			performSegue(withIdentifier: "yearEditor", sender: allExpenses)
-		}
+		performSegue(withIdentifier: "genericEditor", sender: allExpenses)
+//		switch currentRange {
+//		case .Weekly:
+//			performSegue(withIdentifier: "weekEditor", sender: allExpenses)
+//		case .Monthly:
+//			performSegue(withIdentifier: "monthEditor", sender: allExpenses)
+//		case .Yearly:
+//			performSegue(withIdentifier: "yearEditor", sender: allExpenses)
+//		}
 	}
 	
 	func update(with date: Date, range: DateRange) {
@@ -163,6 +164,12 @@ class MainGraphViewController: UITabBarController, UpdateRangeDelegate {
 
 	// Prepare for the segues
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if (segue.identifier == "genericEditor") {
+			let dest = segue.destination as! ChartRangeView
+			dest.allExpenses = allExpenses
+			dest.delegate = self
+			dest.currentRange = currentRange
+		}
 		//Update the week of the data to be presented
 		if(segue.identifier == "weekEditor"){
 			let dest = segue.destination as! UpdateWeekRange
