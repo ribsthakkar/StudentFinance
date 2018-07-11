@@ -54,6 +54,16 @@ class DefaultExpenseViewTable: UIViewController, UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 		done()
 	}
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let deleteAction = UITableViewRowAction(style: .destructive, title: "Remove") {
+			(action, indexPath) in
+			let removeDefault = self.allDefaultExpenses[indexPath.row]
+			self.allDefaultExpenses.remove(at: indexPath.row)
+			PersistanceService.context.delete(removeDefault)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+		return [deleteAction]
+	}
 }
 //DataSource inherited extension
 extension DefaultExpenseViewTable: UITableViewDataSource {

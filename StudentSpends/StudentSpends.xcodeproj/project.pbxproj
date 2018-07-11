@@ -12,7 +12,6 @@
 		3C2972EA20110FD800DA12B5 /* UpdateMonthRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972E920110FD800DA12B5 /* UpdateMonthRange.swift */; };
 		3C2972F12011100500DA12B5 /* UpdateYearRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2972F02011100500DA12B5 /* UpdateYearRange.swift */; };
 		3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B80200E591400CF2C5A /* Charts.framework */; };
-		3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B82200E591800CF2C5A /* TesseractOCR.framework */; };
 		3C464B84200E5AC500CF2C5A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3C464B83200E5AC500CF2C5A /* tessdata */; };
 		3C464BCE200E7AFB00CF2C5A /* UpdateWeekRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C464BCD200E7AFB00CF2C5A /* UpdateWeekRange.swift */; };
 		3C4B354720EC4EAE008092D2 /* ChartRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */; };
@@ -92,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C464B81200E591800CF2C5A /* TesseractOCR.framework in Frameworks */,
 				3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

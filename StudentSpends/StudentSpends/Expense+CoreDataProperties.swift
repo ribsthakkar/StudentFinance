@@ -22,6 +22,7 @@ extension Expense {
     @NSManaged public var type: String?
     @NSManaged public var date: NSDate?
     @NSManaged public var image: UUID?
+	@NSManaged public var defaulted: NSNumber?
 
 }
 

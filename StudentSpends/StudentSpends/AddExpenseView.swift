@@ -22,6 +22,8 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 		expenseTypePicker.selectRow(pickerDataSource.index(of: sender.type!)!, inComponent: 0, animated: true)
 		let amountString = String(format: "%.02f", sender.price)
 		expensePrice.text = amountString
+		cameFromDefault = true
+		
 	}
 	//Connections to story board and class instance variables
 	@IBOutlet var expenseName: UITextField!
@@ -34,6 +36,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 	var expense = Expense(context:PersistanceService.context)
 	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"];
 	weak var delegate: UpdateExpenseTableDelegate?
+	var cameFromDefault: Bool = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +98,10 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
 		
 		//save to CoreData and perform segue to return to tableView of expenses
+		expense.defaulted = cameFromDefault as NSNumber
 		PersistanceService.saveContext()
 		delegate?.update(with: expense)
+		cameFromDefault = false
 		self.dismiss(animated: true, completion: nil)
 	}
 	

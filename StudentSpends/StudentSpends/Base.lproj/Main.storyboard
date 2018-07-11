@@ -295,7 +295,11 @@
                         <viewLayoutGuide key="safeArea" id="Dem-nl-mSF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Expense Details" id="t4Q-fM-cKE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="NMd-6h-WIW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="NMd-6h-WIW">
+                            <connections>
+                                <action selector="onActionTapped" destination="6nx-k1-ReR" id="Cau-d3-pLw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="expenseCost" destination="vbg-Qv-RbM" id="lLx-4J-6Ue"/>
