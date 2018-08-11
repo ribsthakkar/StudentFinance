@@ -11,22 +11,26 @@ import CoreData
 protocol DidDataUpdateDelegate: class {
 	func updated(yes: Bool)
 }
-class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTableDelegate {
+class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTableDelegate, UISearchBarDelegate {
 	
 	func update(with expense: Expense) {
 		allExpenses.append(expense)
-		expenseTable.reloadData()
+		filterTable()
 		changed = true
 	}
 	func remove(with expense: Expense) {
 		allExpenses.remove(at: allExpenses.index(of: expense)!)
-		expenseTable.reloadData()
+		filterTable()
 		changed = true
 	}
+
 	//instantiate class variables (table for expenses) and array of expenses
 	@IBOutlet weak var expenseTable: UITableView!
+	@IBOutlet var searchBar: UISearchBar!
 	private let cellId = "expenseCell"
 	var allExpenses = [Expense]()
+	var showExpenses = [Expense]()
+	var types = ["Food", "Travel", "Leisure", "Supplies", "Other"];
 	var changed:Bool = false
 	weak var delegate: DidDataUpdateDelegate?
 
@@ -34,11 +38,86 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
         super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		expenseTable.delegate = self
+		searchBar.delegate = self
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
 		expenseTable.reloadData()
+		
+		let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
+		let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(ExpenseViewTable.doneButtonAction))
+		toolbar.setItems([flexSpace, doneBtn], animated: false)
+		toolbar.sizeToFit()
+		searchBar.inputAccessoryView = toolbar
     }
+	@objc func doneButtonAction() {
+		self.view.endEditing(true)
+	}
+	// Search Bar
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		guard !searchText.isEmpty else {
+			showExpenses = allExpenses.filter({ (exp) -> Bool in
+				if searchBar.selectedScopeButtonIndex == 0 {
+					return true
+				} else {
+					return exp.type! == types[searchBar.selectedScopeButtonIndex - 1]
+				}
+			})
+			expenseTable.reloadData()
+			return
+		}
+		showExpenses = allExpenses.filter({ (exp) -> Bool in
+			guard let text = searchBar.text else {return false}
+			if searchBar.selectedScopeButtonIndex == 0 {
+				return exp.name!.lowercased().contains(text.lowercased())
+			} else {
+			return exp.name!.lowercased().contains(text.lowercased()) &&
+			exp.type! == types[searchBar.selectedScopeButtonIndex - 1]
+			}
+		})
+		expenseTable.reloadData()
+	}
+	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+		filterTable()
+	}
 	
+	//Filtering Table
+	func filterTable() {
+		guard let searchText = searchBar.text else {
+			showExpenses = allExpenses.filter({ (exp) -> Bool in
+				if searchBar.selectedScopeButtonIndex == 0 {
+					return true
+				} else {
+					return exp.type! == types[searchBar.selectedScopeButtonIndex - 1]
+				}
+			})
+			expenseTable.reloadData()
+			return
+		}
+		guard !searchText.isEmpty else {
+			showExpenses = allExpenses.filter({ (exp) -> Bool in
+				if searchBar.selectedScopeButtonIndex == 0 {
+					return true
+				} else {
+					return exp.type! == types[searchBar.selectedScopeButtonIndex - 1]
+				}
+			})
+			expenseTable.reloadData()
+			return
+		}
+		showExpenses = allExpenses.filter({ (exp) -> Bool in
+			guard let text = searchBar.text else {return false}
+			if searchBar.selectedScopeButtonIndex == 0 {
+				return exp.name!.lowercased().contains(text.lowercased())
+			} else {
+				return exp.name!.lowercased().contains(text.lowercased()) &&
+					exp.type! == types[searchBar.selectedScopeButtonIndex - 1]
+			}
+		})
+		expenseTable.reloadData()
+	}
+	
+	// Navigation
 	override func willMove(toParentViewController parent: UIViewController?) {
 		super.willMove(toParentViewController: parent)
 		done()
@@ -53,6 +132,7 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 				return date0 < date1
 			})
 		}
+		showExpenses = allExpenses
 	}
 	
 	
@@ -72,9 +152,12 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 			let realDest = dest.viewControllers[0] as! AddExpenseView
 			realDest.delegate = self
 		}
-	}	
+	}
+	
+	
+	// TableView
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		performSegue(withIdentifier: "detailExpenseSegue", sender: allExpenses[allExpenses.count - 1 - indexPath.row])
+		performSegue(withIdentifier: "detailExpenseSegue", sender: showExpenses[allExpenses.count - 1 - indexPath.row])
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
@@ -93,14 +176,14 @@ extension ExpenseViewTable: UITableViewDataSource {
 	}
 	//number of cells is equal to the number of expenses in the array
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return allExpenses.count
+		return showExpenses.count
 	}
 	//setup the tableview cell
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		//create cell object
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ExpenseTableCell
-		let expense = allExpenses[allExpenses.count - 1 - indexPath.row]
+		let expense = showExpenses[showExpenses.count - 1 - indexPath.row]
 		
 		//set the labels on the cell and cellDelegate
 		cell.nameOfExpense.text = expense.name

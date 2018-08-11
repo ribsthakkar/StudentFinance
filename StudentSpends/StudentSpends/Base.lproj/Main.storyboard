@@ -85,8 +85,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Expenses" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vOo-7a-hW3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>All</string>
+                                    <string>Food</string>
+                                    <string>Travel</string>
+                                    <string>Leisure</string>
+                                    <string>Supplies</string>
+                                    <string>Other</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zr6-tu-QlZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EVz-5L-xng" id="ORg-Wi-fTO"/>
@@ -95,10 +107,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="leading" secondItem="UX1-R1-fCD" secondAttribute="leading" id="1ug-3b-Juk"/>
-                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="bottom" secondItem="UX1-R1-fCD" secondAttribute="bottom" id="TfL-26-fc6"/>
-                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="trailing" secondItem="UX1-R1-fCD" secondAttribute="trailing" id="cbv-Bc-4x1"/>
-                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="top" secondItem="UX1-R1-fCD" secondAttribute="top" id="wi5-zQ-97T"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="top" secondItem="vOo-7a-hW3" secondAttribute="bottom" id="LVv-kO-C4w"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="leading" secondItem="vOo-7a-hW3" secondAttribute="leading" id="M2R-VF-Nr9"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="trailing" secondItem="vOo-7a-hW3" secondAttribute="trailing" id="V07-RD-5o7"/>
+                            <constraint firstAttribute="trailing" secondItem="zr6-tu-QlZ" secondAttribute="trailing" id="eFN-WF-o6a"/>
+                            <constraint firstItem="vOo-7a-hW3" firstAttribute="top" secondItem="UX1-R1-fCD" secondAttribute="top" id="fQv-Zp-SG7"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="bottom" secondItem="UX1-R1-fCD" secondAttribute="bottom" id="hfz-ZB-5R9"/>
+                            <constraint firstItem="zr6-tu-QlZ" firstAttribute="leading" secondItem="5Ei-sW-Pbt" secondAttribute="leading" id="mhs-Ao-3vh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UX1-R1-fCD"/>
                     </view>
@@ -112,12 +127,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="expenseTable" destination="zr6-tu-QlZ" id="cJk-AT-qsJ"/>
+                        <outlet property="searchBar" destination="vOo-7a-hW3" id="ulm-nH-NG6"/>
                         <segue destination="6nx-k1-ReR" kind="show" identifier="detailExpenseSegue" id="hEQ-KB-QKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbn-cv-3ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="-414"/>
+            <point key="canvasLocation" x="669.60000000000002" y="-414.24287856071965"/>
         </scene>
         <!--Line Graph-->
         <scene sceneID="lEM-dW-89m">

@@ -34,7 +34,7 @@ class AddExpenseView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var expenseType: UITextField!
 	@IBOutlet weak var submitButton: UIButton!
 	var expense = Expense(context:PersistanceService.context)
-	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"];
+	var pickerDataSource = ["Food", "Travel", "Leisure", "Supplies", "Other"]
 	weak var delegate: UpdateExpenseTableDelegate?
 	var cameFromDefault: Bool = false
 	
