@@ -13,7 +13,6 @@
 		3C1169641FFED39900BBF810 /* LineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1169631FFED39900BBF810 /* LineGraphViewController.swift */; };
 		3C11696C1FFF3D7400BBF810 /* PieGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */; };
 		3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C464B80200E591400CF2C5A /* Charts.framework */; };
-		3C464B84200E5AC500CF2C5A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 3C464B83200E5AC500CF2C5A /* tessdata */; };
 		3C4B354720EC4EAE008092D2 /* ChartRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */; };
 		3C4BAC541FF94DE9002F4985 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */; };
 		3C4BAC551FF94DE9002F4985 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BAC531FF94DE9002F4985 /* Expense+CoreDataProperties.swift */; };
@@ -34,6 +33,7 @@
 		3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836C1FF6ED9E006D0D30 /* Main.storyboard */; };
 		3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */; };
 		3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */; };
+		42F939764681DD1DC0E05168 /* Pods_StudentSpends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80797E957B41580A3DB5ACC8 /* Pods_StudentSpends.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,15 +50,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudentSpends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04C0D8B78017B698D3C028D5 /* Pods-StudentSpends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentSpends.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends.release.xcconfig"; sourceTree = "<group>"; };
 		3C0BB441211F6898003C23E1 /* UpdateWeekRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateWeekRange.swift; sourceTree = "<group>"; };
 		3C0BB442211F6898003C23E1 /* UpdateYearRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateYearRange.swift; sourceTree = "<group>"; };
 		3C0BB443211F6898003C23E1 /* UpdateMonthRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateMonthRange.swift; sourceTree = "<group>"; };
 		3C1169631FFED39900BBF810 /* LineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphViewController.swift; sourceTree = "<group>"; };
 		3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewController.swift; sourceTree = "<group>"; };
 		3C464B80200E591400CF2C5A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C464B82200E591800CF2C5A /* TesseractOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C464B83200E5AC500CF2C5A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		3C464BC2200E627900CF2C5A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		3C4B354620EC4EAE008092D2 /* ChartRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRangeView.swift; sourceTree = "<group>"; };
 		3C4BAC521FF94DE9002F4985 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,8 +80,8 @@
 		3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CED83721FF6ED9E006D0D30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CED83741FF6ED9E006D0D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF426CF539F39454864D555B /* Pods-StudentSpends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentSpends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends.debug.xcconfig"; sourceTree = "<group>"; };
-		AF889C8801B15791789F5E4B /* Pods-StudentSpends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentSpends.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends.release.xcconfig"; sourceTree = "<group>"; };
+		80797E957B41580A3DB5ACC8 /* Pods_StudentSpends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudentSpends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3FCB1256DD99999B00BF0B /* Pods-StudentSpends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentSpends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,28 +90,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C464B7F200E591400CF2C5A /* Charts.framework in Frameworks */,
+				42F939764681DD1DC0E05168 /* Pods_StudentSpends.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D16AFC4974A7B07EBF78D4D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AF426CF539F39454864D555B /* Pods-StudentSpends.debug.xcconfig */,
-				AF889C8801B15791789F5E4B /* Pods-StudentSpends.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3CED835C1FF6ED9E006D0D30 = {
 			isa = PBXGroup;
 			children = (
 				3CED83671FF6ED9E006D0D30 /* StudentSpends */,
 				3CED83661FF6ED9E006D0D30 /* Products */,
-				0D16AFC4974A7B07EBF78D4D /* Pods */,
 				7862A1F7275453D63FEE2D7D /* Frameworks */,
+				E1694C322B9CF63929B88F97 /* Pods */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -153,7 +143,6 @@
 				3C1169631FFED39900BBF810 /* LineGraphViewController.swift */,
 				3C11696B1FFF3D7400BBF810 /* PieGraphViewController.swift */,
 				3CED836F1FF6ED9E006D0D30 /* Assets.xcassets */,
-				3C464B83200E5AC500CF2C5A /* tessdata */,
 				3CED83711FF6ED9E006D0D30 /* LaunchScreen.storyboard */,
 				3CED83741FF6ED9E006D0D30 /* Info.plist */,
 			);
@@ -164,11 +153,19 @@
 			isa = PBXGroup;
 			children = (
 				3C464BC2200E627900CF2C5A /* AddressBookUI.framework */,
-				3C464B82200E591800CF2C5A /* TesseractOCR.framework */,
 				3C464B80200E591400CF2C5A /* Charts.framework */,
-				3717DA79AAF63450E15033B7 /* Pods_StudentSpends.framework */,
+				80797E957B41580A3DB5ACC8 /* Pods_StudentSpends.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1694C322B9CF63929B88F97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA3FCB1256DD99999B00BF0B /* Pods-StudentSpends.debug.xcconfig */,
+				04C0D8B78017B698D3C028D5 /* Pods-StudentSpends.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,13 +175,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CED83771FF6ED9E006D0D30 /* Build configuration list for PBXNativeTarget "StudentSpends" */;
 			buildPhases = (
-				F6D3B3BDAF034FE8765609A9 /* [CP] Check Pods Manifest.lock */,
+				6F6213E8EA5AA1CABA55D8FC /* [CP] Check Pods Manifest.lock */,
 				3CED83611FF6ED9E006D0D30 /* Sources */,
 				3CED83621FF6ED9E006D0D30 /* Frameworks */,
 				3CED83631FF6ED9E006D0D30 /* Resources */,
-				4CAF0D5F8BDCB8CF36CF3C6B /* [CP] Embed Pods Frameworks */,
-				3746FD7CB05C5FCFD79FDD79 /* [CP] Copy Pods Resources */,
 				3C464BCC200E62C000CF2C5A /* Embed Frameworks */,
+				6794A8A39ACD42843CF29875 /* [CP] Embed Pods Frameworks */,
+				826C1FE18D8850E85B234329 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,7 +199,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = ribsthak;
 				TargetAttributes = {
 					3CED83641FF6ED9E006D0D30 = {
@@ -237,7 +234,6 @@
 				3CED83731FF6ED9E006D0D30 /* LaunchScreen.storyboard in Resources */,
 				3CC0330B207A98660030881A /* DefaultExpenseTableCell.xib in Resources */,
 				3C4BAC591FF9549D002F4985 /* ExpenseTableCell.xib in Resources */,
-				3C464B84200E5AC500CF2C5A /* tessdata in Resources */,
 				3CED83701FF6ED9E006D0D30 /* Assets.xcassets in Resources */,
 				3CED836E1FF6ED9E006D0D30 /* Main.storyboard in Resources */,
 			);
@@ -246,22 +242,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3746FD7CB05C5FCFD79FDD79 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4CAF0D5F8BDCB8CF36CF3C6B /* [CP] Embed Pods Frameworks */ = {
+		6794A8A39ACD42843CF29875 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,19 +250,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6D3B3BDAF034FE8765609A9 /* [CP] Check Pods Manifest.lock */ = {
+		6F6213E8EA5AA1CABA55D8FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,6 +276,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		826C1FE18D8850E85B234329 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudentSpends/Pods-StudentSpends-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -365,6 +359,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -372,6 +367,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -380,7 +376,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: rishabh.thakkar@gmail.com (4T9SJYY687)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
@@ -400,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,6 +419,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -430,6 +427,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -438,7 +436,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: rishabh.thakkar@gmail.com (4T9SJYY687)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -452,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -462,37 +460,79 @@
 		};
 		3CED83781FF6ED9E006D0D30 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF426CF539F39454864D555B /* Pods-StudentSpends.debug.xcconfig */;
+			baseConfigurationReference = FA3FCB1256DD99999B00BF0B /* Pods-StudentSpends.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7SNVDQQ46;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Charts\"",
+				);
 				INFOPLIST_FILE = StudentSpends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Charts/Charts.framework/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"Charts\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ribsthak.StudentSpends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		3CED83791FF6ED9E006D0D30 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF889C8801B15791789F5E4B /* Pods-StudentSpends.release.xcconfig */;
+			baseConfigurationReference = 04C0D8B78017B698D3C028D5 /* Pods-StudentSpends.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7SNVDQQ46;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Charts\"",
+				);
 				INFOPLIST_FILE = StudentSpends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Charts/Charts.framework/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"Charts\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ribsthak.StudentSpends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
