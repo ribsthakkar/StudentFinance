@@ -41,7 +41,6 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 		searchBar.delegate = self
 		//apply nib for expense table cell
 		expenseTable.register(UINib(nibName: "ExpenseTableCell", bundle: .main), forCellReuseIdentifier: cellId)
-		expenseTable.reloadData()
 		
 		let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
 		let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
@@ -132,7 +131,7 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 				return date0 < date1
 			})
 		}
-		showExpenses = allExpenses
+		filterTable()
 	}
 	
 	
@@ -157,7 +156,7 @@ class ExpenseViewTable: UIViewController, UITableViewDelegate, UpdateExpenseTabl
 	
 	// TableView
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		performSegue(withIdentifier: "detailExpenseSegue", sender: showExpenses[allExpenses.count - 1 - indexPath.row])
+		performSegue(withIdentifier: "detailExpenseSegue", sender: showExpenses.reversed()[indexPath.row])
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	

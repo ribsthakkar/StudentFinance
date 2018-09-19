@@ -28,8 +28,10 @@ class PieGraphViewController: UIViewController {
 		
 		//loop through each category, create data entry and added to list of data entries
 		for i in 0..<expensesByCategory.count {
-			let dataEntry1 = PieChartDataEntry(value: expensesByCategory[keys[i]]!, label: keys[i])
-			entries.append(dataEntry1) // here we add it to the data set
+			if(expensesByCategory[keys[i]]! > 0) {
+				let dataEntry1 = PieChartDataEntry(value: expensesByCategory[keys[i]]!, label: keys[i])
+				entries.append(dataEntry1) // here we add it to the data set
+			}
 		}
 		
 		// PieChartDataSet created from entries
@@ -48,6 +50,7 @@ class PieGraphViewController: UIViewController {
 		set.colors = colors
 		let data = PieChartData(dataSet: set)
 		pieChart.data = data
+		pieChart.data?.setValueFormatter(YAxisValueFormatter())
 		pieChart.chartDescription?.text = "Expenses by type"
 		pieChart.noDataText = "No data available"
 		pieChart.holeRadiusPercent = 0.2

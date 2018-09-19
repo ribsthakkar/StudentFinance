@@ -33,7 +33,6 @@ class LineGraphViewController: UIViewController {
 			let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 			lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
 		}
-		
 		//loop through the expenses and add them to the LineChartEntry array
 		for i in 0..<expensesByDate.count {
 			let value = ChartDataEntry(x: Double(i), y: expensesByDate[keys[i]]!)
@@ -51,7 +50,40 @@ class LineGraphViewController: UIViewController {
 		lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
 		lineChart.noDataText = "No data yet"
 		lineChart.data = data
+		lineChart.data?.setValueFormatter(YAxisValueFormatter())
 		lineChart.chartDescription?.text = "My Expenses"
 	}
+
+}
+class YAxisValueFormatter: NSObject, IValueFormatter {
+	
+	func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+		return numFormatter.string(from: NSNumber(floatLiteral: value))!
+
+	}
+	
+	
+	let numFormatter: NumberFormatter
+	
+	override init() {
+		numFormatter = NumberFormatter()
+		numFormatter.minimumFractionDigits = 2
+		numFormatter.maximumFractionDigits = 2
+		
+		// if number is less than 1 add 0 before decimal
+		numFormatter.minimumIntegerDigits = 1 // how many digits do want before decimal
+		numFormatter.paddingPosition = .beforePrefix
+		numFormatter.paddingCharacter = "0"
+	}
+	
+	/// Called when a value from an axis is formatted before being drawn.
+	///
+	/// For performance reasons, avoid excessive calculations and memory allocations inside this method.
+	///
+	/// - returns: The customized label that is drawn on the axis.
+	/// - parameter value:           the value that is currently being drawn
+	/// - parameter axis:            the axis that the value belongs to
+	///
+	
 
 }
